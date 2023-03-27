@@ -1,44 +1,55 @@
-<div class="main">
-    <div class="header">
-        <div class="header-top">
-            <div class="form-title">
-                <div class="form-title-text-container">
-                    <div class="title title-alpha">Alpha</div>
-                    <div class="title title-complex">Complex</div>
-                    <div class="title title-identity space-letters-to-full-width">
-                        I d e n t i t y
-                        <span class="space-letters-to-full-width-helper"> </span>
+<div class="sheet-main">
+    <div class="sheet-header">
+        <div class="sheet-header-top">
+            <div class="sheet-form-title">
+                <div class="sheet-form-title-image-outer-container">
+                    <div class="sheet-spacer-bar"></div>
+                    <div class="sheet-form-title-image-container">
+                        <img class="sheet-eye-logo" src="https://raw.githubusercontent.com/jonathanstokes/paranoia-character-sheet/main/image/blue-eye-logo.png"/>
                     </div>
-                    <div class="title title-form space-letters-to-full-width">
-                        F o r m
-                        <span class="space-letters-to-full-width-helper"> </span>
+                </div>
+                <div class="sheet-form-title-outer-text-container">
+                    <div class="sheet-red-bar"></div>
+                    <div class="sheet-form-title-text-container">
+                        <div class="sheet-title sheet-title-alpha sheet-color-dark-blue">Alpha</div>
+                        <div class="sheet-title sheet-title-complex sheet-color-dark-blue">Complex</div>
+                        <div class="sheet-title sheet-title-identity sheet-space-letters-to-full-width">
+                            I d e n t i t y
+                            <span class="sheet-space-letters-to-full-width-helper"> </span>
+                        </div>
+                        <div class="sheet-title sheet-title-form sheet-space-letters-to-full-width">
+                            F o r m
+                            <span class="sheet-space-letters-to-full-width-helper"> </span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="picture"></div>
+            <div class="sheet-picture">
+                <img name="attr_character_avatar"/>
+            </div>
         </div>
-        <div class="header-bottom">
-            <div class="mandatory-title space-letters-to-full-width">
+        <div class="sheet-header-bottom">
+            <div class="sheet-mandatory-title sheet-space-letters-to-full-width">
                 ▶ T h i s &nbsp; f o r m &nbsp; i s &nbsp; m a n d a t o r y
-                <span class="space-letters-to-full-width-helper"> </span>
+                <span class="sheet-space-letters-to-full-width-helper"> </span>
             </div>
         </div>
     </div>
-    <div class="content">
-        <div class="part">
-            <div class="part-header">
-                <div class="part-number"><span class="text">/// Part One</span></div>
-                <div class="part-title"><span class="text">Core Information <span class="chevron">›››</span></span></div>
+    <div class="sheet-content">
+        <div class="sheet-part">
+            <div class="sheet-part-header">
+                <div class="sheet-part-number"><span class="sheet-text">/// Part One</span></div>
+                <div class="sheet-part-title"><span class="sheet-text">Core Information <span class="sheet-chevron">›››</span></span></div>
             </div>
-            <div class="part-body">
-                <div class="part-body-row">
-                    <div class="field-container">
-                        <div class="field-title">Name:</div>
-                        <input class="field field-name" type="text" name="attr_name"/>
+            <div class="sheet-part-body">
+                <div class="sheet-part-body-row">
+                    <div class="sheet-field-container">
+                        <div class="sheet-field-title">Name:</div>
+                        <input class="sheet-field sheet-field-name" type="text" name="attr_name"/>
                     </div>
-                    <div class="field-container">
-                        <div class="field-title">Security Clearance:</div>
-                        <select class="field field-clearance" name="attr_clearance">
+                    <div class="sheet-field-container">
+                        <div class="sheet-field-title">Security Clearance:</div>
+                        <select class="sheet-field sheet-field-clearance" name="attr_clearance">
                             <option value="" selected="selected">Infrared</option>
                             <option value="R">Red</option>
                             <option value="O">Orange</option>
@@ -50,152 +61,243 @@
                             <option value="U">Ultraviolet</option>
                         </select>
                     </div>
-                    <div class="field-container">
-                        <div class="field-title">Home Sector:</div>
-                        <input class="field field-sector" type="text" name="attr_sector"/>
+                    <div class="sheet-field-container">
+                        <div class="sheet-field-title">Home Sector:</div>
+                        <input class="sheet-field sheet-field-sector" type="text" name="attr_sector"/>
                     </div>
-                    <div class="field-container">
-                        <div class="field-title">Clone#:</div>
-                        <input class="field field-clone-count" type="number" name="attr_cloneCount" value="1"/>
+                    <div class="sheet-field-container">
+                        <div class="sheet-field-title">Clone#:</div>
+                        <input class="sheet-field sheet-field-clone-count" type="number" name="attr_cloneCount" value="1"/>
                     </div>
-                    <div class="field-container">
-                        <div class="field-title">Gender:</div>
-                        <select class="field field-gender" name="attr_gender">
+                    <div class="sheet-field-container">
+                        <div class="sheet-field-title">Gender:</div>
+                        <select class="sheet-field sheet-field-gender" name="attr_gender">
                             <option value="" selected="selected"></option>
                             <option value="M">M</option>
                             <option value="F">F</option>
                         </select>
                     </div>
-                    <div class="field-container">
-                        <div class="field-title">Personality:</div>
-                        <input class="field field-personality" type="text" name="attr_personality"/>
+                    <div class="sheet-field-container">
+                        <div class="sheet-field-title">Personality:</div>
+                        <input class="sheet-field sheet-field-personality" type="text" name="attr_personality"/>
                     </div>
                 </div>
-                <div class="part-body-row">
+                <div class="sheet-part-body-row">
                 </div>
             </div>
         </div>
-        <div class="part">
-            <div class="part-header">
-                <div class="part-number"><span class="text">/// Part Two</span></div>
-                <div class="part-title"><span class="text">Development <span class="chevron">›››</span></span></div>
+        <div class="sheet-part">
+            <div class="sheet-part-header">
+                <div class="sheet-part-number"><span class="sheet-text">/// Part Two</span></div>
+                <div class="sheet-part-title"><span class="sheet-text">Development <span class="sheet-chevron">›››</span></span></div>
             </div>
-            <div class="part-body">
-                <div class="part-body-row">
-                    <div class="field-container">
-                        <div class="field-title">Treason Stars:</div>
-                        <div class="styled-radio-button-container treason-stars-container">
-                            <input class="field field-treason-stars" type="radio" value="1" name="attr_treasonStars"/>
-                            <input class="field field-treason-stars" type="radio" value="2" name="attr_treasonStars"/>
-                            <input class="field field-treason-stars" type="radio" value="3" name="attr_treasonStars"/>
-                            <input class="field field-treason-stars" type="radio" value="4" name="attr_treasonStars"/>
-                            <input class="field field-treason-stars" type="radio" value="5" name="attr_treasonStars"/>
+            <div class="sheet-part-body">
+                <div class="sheet-part-body-row">
+                    <div class="sheet-field-container">
+                        <div class="sheet-field-title">Treason Stars:</div>
+                        <div class="sheet-styled-radio-button-container sheet-treason-stars-container">
+                            <input class="sheet-field sheet-field-treason-stars" type="radio" value="1" name="attr_treasonStars"/>
+                            <input class="sheet-field sheet-field-treason-stars" type="radio" value="2" name="attr_treasonStars"/>
+                            <input class="sheet-field sheet-field-treason-stars" type="radio" value="3" name="attr_treasonStars"/>
+                            <input class="sheet-field sheet-field-treason-stars" type="radio" value="4" name="attr_treasonStars"/>
+                            <input class="sheet-field sheet-field-treason-stars" type="radio" value="5" name="attr_treasonStars"/>
                         </div>
                     </div>
-                    <div class="field-container">
-                        <div class="field-title">XP Points:</div>
-                        <input class="field field-xp-points" type="number" name="attr_xpPoints"/>
+                    <div class="sheet-field-container">
+                        <div class="sheet-field-title">XP Points:</div>
+                        <input class="sheet-field sheet-field-xp-points" type="number" name="attr_xpPoints"/>
                     </div>
                 </div>
-                <div class="sub-group stats-header">
-                    Stats <span class="chevron">›››</span>
+                <div class="sheet-sub-group sheet-sub-group-moxie">
+                    <div class="sheet-sub-group-header sheet-stats-header">
+                        Stats <span class="sheet-chevron">›››</span>
+                    </div>
                 </div>
-                <div class="part-body-row">
-                    <div class="field-container">
-                        <div class="field-title">Violence:</div>
-                        <input class="field field-stat" type="number" name="attr_violenceStat"/>
+                <div class="sheet-part-body-row sheet-part-body-row-stat">
+                    <div class="sheet-field-container sheet-field-container-stat">
+                        <div class="sheet-field-title">Violence:</div>
+                        <input class="sheet-field sheet-field-stat" type="number" name="attr_violenceStat"/>
                     </div>
-                    <div class="field-container">
-                        <div class="field-title">Brains:</div>
-                        <input class="field field-stat" type="number" name="attr_brainsStat"/>
+                    <div class="sheet-field-container sheet-field-container-stat">
+                        <div class="sheet-field-title">Brains:</div>
+                        <input class="sheet-field sheet-field-stat" type="number" name="attr_brainsStat"/>
                     </div>
-                    <div class="field-container">
-                        <div class="field-title">Chutzpah:</div>
-                        <input class="field field-stat" type="number" name="attr_chutzpahStat"/>
+                    <div class="sheet-field-container sheet-field-container-stat">
+                        <div class="sheet-field-title">Chutzpah:</div>
+                        <input class="sheet-field sheet-field-stat" type="number" name="attr_chutzpahStat"/>
                     </div>
-                    <div class="field-container">
-                        <div class="field-title">Mechanics:</div>
-                        <input class="field field-stat" type="number" name="attr_mechanicsStat"/>
+                    <div class="sheet-field-container sheet-field-container-stat">
+                        <div class="sheet-field-title">Mechanics:</div>
+                        <input class="sheet-field sheet-field-stat" type="number" name="attr_mechanicsStat"/>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="part">
-            <div class="part-header">
-                <div class="part-number"><span class="text">/// Part Three</span></div>
-                <div class="part-title"><span class="text">Skills <span class="chevron">›››</span></span></div>
+        <div class="sheet-part">
+            <div class="sheet-part-header">
+                <div class="sheet-part-number"><span class="sheet-text">/// Part Three</span></div>
+                <div class="sheet-part-title"><span class="sheet-text">Skills <span class="sheet-chevron">›››</span></span></div>
             </div>
-            <div class="part-body part-body-skill">
-                <div class="part-body-column">
-                    <div class="field-container field-container-skill">
-                        <div class="field-title">Athletics</div>
-                        <input class="field field-skill" type="number" name="attr_athleticsSkill"/>
+            <div class="sheet-part-body sheet-part-body-skill">
+                <div class="sheet-part-body-row">
+                    <div class="sheet-part-body-column">
+                        <div class="sheet-field-container sheet-field-container-skill">
+                            <div class="sheet-field-title">Athletics</div>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_athleticsSkill"/>
+                        </div>
+                        <div class="sheet-field-container sheet-field-container-skill">
+                            <div class="sheet-field-title">Guns</div>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_gunsSkill"/>
+                        </div>
+                        <div class="sheet-field-container sheet-field-container-skill">
+                            <div class="sheet-field-title">Melee</div>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_meleeSkill"/>
+                        </div>
+                        <div class="sheet-field-container sheet-field-container-skill">
+                            <div class="sheet-field-title">Throw</div>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_throwSkill"/>
+                        </div>
                     </div>
-                    <div class="field-container field-container-skill">
-                        <div class="field-title">Guns</div>
-                        <input class="field field-skill" type="number" name="attr_gunsSkill"/>
+                    <div class="sheet-part-body-column">
+                        <div class="sheet-field-container sheet-field-container-skill">
+                            <div class="sheet-field-title">Science</div>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_scienceSkill"/>
+                        </div>
+                        <div class="sheet-field-container sheet-field-container-skill">
+                            <div class="sheet-field-title">Psychology</div>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_psychologySkill"/>
+                        </div>
+                        <div class="sheet-field-container sheet-field-container-skill">
+                            <div class="sheet-field-title">Bureaucracy</div>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_bureaucracySkill"/>
+                        </div>
+                        <div class="sheet-field-container sheet-field-container-skill">
+                            <div class="sheet-field-title">Alpha Complex</div>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_alphaComplexSkill"/>
+                        </div>
                     </div>
-                    <div class="field-container field-container-skill">
-                        <div class="field-title">Melee</div>
-                        <input class="field field-skill" type="number" name="attr_meleeSkill"/>
+                    <div class="sheet-part-body-column">
+                        <div class="sheet-field-container sheet-field-container-skill">
+                            <div class="sheet-field-title">Bluff</div>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_bluffSkill"/>
+                        </div>
+                        <div class="sheet-field-container sheet-field-container-skill">
+                            <div class="sheet-field-title">Charm</div>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_charmSkill"/>
+                        </div>
+                        <div class="sheet-field-container sheet-field-container-skill">
+                            <div class="sheet-field-title">Intimidate</div>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_intimidateSkill"/>
+                        </div>
+                        <div class="sheet-field-container sheet-field-container-skill">
+                            <div class="sheet-field-title">Stealth</div>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_stealthSkill"/>
+                        </div>
                     </div>
-                    <div class="field-container field-container-skill">
-                        <div class="field-title">Throw</div>
-                        <input class="field field-skill" type="number" name="attr_throwSkill"/>
+                    <div class="sheet-part-body-column">
+                        <div class="sheet-field-container sheet-field-container-skill">
+                            <div class="sheet-field-title">Operate</div>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_operateSkill"/>
+                        </div>
+                        <div class="sheet-field-container sheet-field-container-skill">
+                            <div class="sheet-field-title">Engineer</div>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_engineerSkill"/>
+                        </div>
+                        <div class="sheet-field-container sheet-field-container-skill">
+                            <div class="sheet-field-title">Program</div>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_programSkill"/>
+                        </div>
+                        <div class="sheet-field-container sheet-field-container-skill">
+                            <div class="sheet-field-title">Demolitions</div>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_demolitionsSkill"/>
+                        </div>
                     </div>
                 </div>
-                <div class="part-body-column">
-                    <div class="field-container field-container-skill">
-                        <div class="field-title">Science</div>
-                        <input class="field field-skill" type="number" name="attr_scienceSkill"/>
+                <input class="sheet-field sheet-field-additionalSkills sheet-field-freeform-text-line" type="text" name="attr_additionalSkills1"/>
+                <input class="sheet-field sheet-field-additionalSkills sheet-field-freeform-text-line" type="text" name="attr_additionalSkills2"/>
+            </div>
+        </div>
+        <div class="sheet-part">
+            <div class="sheet-part-header">
+                <div class="sheet-part-number"><span class="sheet-text">/// Part Four</span></div>
+                <div class="sheet-part-title"><span class="sheet-text">Wellbeing <span class="sheet-chevron">›››</span></span></div>
+            </div>
+            <div class="sheet-part-body sheet-part-body-skill">
+                <div class="sheet-part-body-row">
+                    <div class="sheet-sub-group sheet-sub-group-moxie">
+                        <div class="sheet-sub-group-header">
+                            Moxie <span class="sheet-chevron">›››</span>
+                        </div>
+                        <div class="sheet-sub-group-body">
+                            <div class="sheet-styled-radio-button-container sheet-moxie-circles-container">
+                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="1" name="attr_moxieCircles"/>
+                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="2" name="attr_moxieCircles"/>
+                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="3" name="attr_moxieCircles"/>
+                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="4" name="attr_moxieCircles"/>
+                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="5" name="attr_moxieCircles"/>
+                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="6" name="attr_moxieCircles"/>
+                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="7" name="attr_moxieCircles"/>
+                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="8" name="attr_moxieCircles"/>
+                            </div>
+                        </div>
                     </div>
-                    <div class="field-container field-container-skill">
-                        <div class="field-title">Psychology</div>
-                        <input class="field field-skill" type="number" name="attr_psychologySkill"/>
-                    </div>
-                    <div class="field-container field-container-skill">
-                        <div class="field-title">Bureaucracy</div>
-                        <input class="field field-skill" type="number" name="attr_bureaucracySkill"/>
-                    </div>
-                    <div class="field-container field-container-skill">
-                        <div class="field-title">Alpha Complex</div>
-                        <input class="field field-skill" type="number" name="attr_alphaComplexSkill"/>
+                    <div class="sheet-sub-group sheet-sub-group-wounds">
+                        <div class="sheet-sub-group-header">
+                            Wounds <span class="sheet-chevron">›››</span>
+                        </div>
+                        <div class="sheet-sub-group-body">
+                            <div class="sheet-field-container-wounds">
+                                <div class="sheet-field-container sheet-field-container-wound">
+                                    <div class="sheet-field-title">Hurt</div>
+                                    <input class="sheet-field sheet-field-skill" type="radio" value="hurt" name="attr_woundLevel"/>
+                                </div>
+                                <div class="sheet-field-container sheet-field-container-wound">
+                                    <div class="sheet-field-title">Injured</div>
+                                    <input class="sheet-field sheet-field-skill" type="radio" value="injured" name="attr_woundLevel"/>
+                                </div>
+                                <div class="sheet-field-container sheet-field-container-wound">
+                                    <div class="sheet-field-title">Maimed</div>
+                                    <input class="sheet-field sheet-field-skill" type="radio" value="maimed" name="attr_woundLevel"/>
+                                </div>
+                                <div class="sheet-field-container sheet-field-container-wound">
+                                    <div class="sheet-field-title">Dead</div>
+                                    <input class="sheet-field sheet-field-skill" type="radio" value="dead" name="attr_woundLevel"/>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="part-body-column">
-                    <div class="field-container field-container-skill">
-                        <div class="field-title">Bluff</div>
-                        <input class="field field-skill" type="number" name="attr_bluffSkill"/>
+                <div class="sheet-sub-group sheet-sub-group-moxie">
+                    <div class="sheet-sub-group-header">
+                        Memory <span class="sheet-chevron">›››</span>
                     </div>
-                    <div class="field-container field-container-skill">
-                        <div class="field-title">Charm</div>
-                        <input class="field field-skill" type="number" name="attr_charmSkill"/>
-                    </div>
-                    <div class="field-container field-container-skill">
-                        <div class="field-title">Intimidate</div>
-                        <input class="field field-skill" type="number" name="attr_intimidateSkill"/>
-                    </div>
-                    <div class="field-container field-container-skill">
-                        <div class="field-title">Stealth</div>
-                        <input class="field field-skill" type="number" name="attr_stealthSkill"/>
-                    </div>
+                    <div class="sheet-sub-group-body">
+                        <div class="sheet-memory-container">
+                            <div class="sheet-memory-row">
+                                <input class="sheet-field sheet-field-memory sheet-field-freeform-text-line" type="text" name="attr_memory1"/>
+                            </div>
+                            <div class="sheet-memory-row">
+                                <input class="sheet-field sheet-field-memory sheet-field-freeform-text-line" type="text" name="attr_memory2"/>
+                                <div class="sheet-zb-container">
+                                    <input class="sheet-field sheet-field-memory-zb sheet-field-freeform-text-line" type="text" name="attr_memoryZb"/>
+                                    <div class="sheet-field-title">ZB</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`
                 </div>
-                <div class="part-body-column">
-                    <div class="field-container field-container-skill">
-                        <div class="field-title">Operate</div>
-                        <input class="field field-skill" type="number" name="attr_operateSkill"/>
-                    </div>
-                    <div class="field-container field-container-skill">
-                        <div class="field-title">Engineer</div>
-                        <input class="field field-skill" type="number" name="attr_engineerSkill"/>
-                    </div>
-                    <div class="field-container field-container-skill">
-                        <div class="field-title">Program</div>
-                        <input class="field field-skill" type="number" name="attr_programSkill"/>
-                    </div>
-                    <div class="field-container field-container-skill">
-                        <div class="field-title">Demolitions</div>
-                        <input class="field field-skill" type="number" name="attr_demolitionsSkill"/>
+            </div>
+        </div>
+        <div class="sheet-part">
+            <div class="sheet-part-header">
+                <div class="sheet-part-number"><span class="sheet-text">/// Part Five</span></div>
+                <div class="sheet-part-title"><span class="sheet-text">Equipment <span class="sheet-chevron">›››</span></span></div>
+            </div>
+            <div class="sheet-part-body sheet-part-body-skill">
+                <div class="sheet-sub-group sheet-sub-group-equipment">
+                    <div class="sheet-sub-group-body">
+                        <input class="sheet-field sheet-field-equipment sheet-field-freeform-text-line" type="text" name="attr_equipment1"/>
+                        <input class="sheet-field sheet-field-equipment sheet-field-freeform-text-line" type="text" name="attr_equipment2"/>
                     </div>
                 </div>
             </div>
