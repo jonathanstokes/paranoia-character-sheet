@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 .sheet-main {
     text-transform: uppercase;
     background-color: white;
@@ -25,8 +27,9 @@
 }
 
 .sheet-red-bar {
-    background-color: rgb(189,68,56);
+    background-color: rgb(189, 68, 56);
 }
+
 .sheet-spacer-bar {
     min-height: 1rem;
 }
@@ -34,6 +37,9 @@
 .sheet-form-title-image-container {
     display: flex;
     justify-content: center;
+    box-sizing: border-box;
+    width: 22rem;
+    height: 9rem;
 }
 
 .sheet-form-title-image-container .sheet-eye-logo {
@@ -41,10 +47,11 @@
 }
 
 .sheet-form-title-text-container {
-    min-width: 15rem;
+    box-sizing: border-box;
+    width: 22rem;
     /*tmp*/
-    background-color: rgb(136,182,223);
-    padding: 2.5rem 2.5rem;
+    background-color: rgb(122, 174, 208); /* slight variant on purpose */
+    padding: 1rem 2.5rem 2rem 2.5rem;
 }
 
 .sheet-title {
@@ -71,9 +78,10 @@
     font-weight: 300;
     color: white;
     line-height: 1.5;
-    height: 4.5rem;
+    height: 4rem;
     transform: scale(.95, 1);
 }
+
 .sheet-title-form {
     font-family: Verdana, Geneva, sans-serif;
     font-size: 4rem;
@@ -86,9 +94,10 @@
 
 .sheet-mandatory-title {
     font-family: Verdana, Geneva, sans-serif;
-    color: rgb(189,68,56);
+    color: rgb(189, 68, 56);
     font-size: 1.5rem;
-    margin: 1.5rem 0 -1rem 0;
+    height: 2.5rem;
+    margin: 1.25rem 0 0 -0.5rem;
     transform: scale(.98, 1.5);
 }
 
@@ -103,9 +112,9 @@
 }
 
 .sheet-picture {
-    margin: 0.75rem 2rem 0 1rem;
+    margin: 0.75rem 0 0 1rem;
     min-width: 26.5rem;
-    border: 0.1875rem solid rgb(136,182,223);
+    border: 0.1875rem solid rgb(131, 174, 207);;
 }
 
 .sheet-part {
@@ -123,7 +132,7 @@
 .sheet-part-number {
     font-family: "Arial", Gadget, sans-serif;
     color: white;
-    background-color: black;
+    background-color: #28394F;
     flex: 1;
     padding: 0.5rem 1rem;
     font-size: 0.875rem;
@@ -138,7 +147,7 @@
 .sheet-part-title {
     font-family: "Arial Black", "Arial Bold", "Arial", Gadget, sans-serif;
     color: #28394F;
-    background-color: rgb(136,182,223);
+    background-color: rgb(131, 174, 207);;
     flex: 6;
     padding: 0.5rem 1rem;
 }
@@ -176,6 +185,7 @@
 .sheet-field-container {
     flex: 1;
 }
+
 .sheet-field-container .sheet-field-title {
     font-family: "Andale Mono", AndaleMono, monospace;
     font-size: 0.875rem;
@@ -184,23 +194,35 @@
     margin-right: 0.25rem;
 }
 
+.sheet-field {
+    box-sizing: border-box;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+.sheet-field:focus-visible {
+    outline: 0.125rem inset rgb(225, 243, 252);
+    outline-offset: -0.1875rem;
+}
+
 select.sheet-field {
     margin-bottom: 0;
+    height: 1.6875rem;
 }
 
 input.sheet-field[type=text], input.sheet-field[type=number], select.sheet-field {
-    border-color: rgb(136,182,223);
+    border-color: rgb(131, 174, 207);
+    border-width: 0.1875rem;
+    border-style: solid;
 }
 
 input.sheet-field[type=text] {
     min-width: 20rem;
     width: 100%;
-    font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
 
 input.sheet-field[type=number] {
-    font-family: "Comic Sans MS", "Comic Sans", cursive;
-    max-width: 2.25rem;
+    max-width: 3.25rem;
+    text-align: center;
 }
 
 .sheet-field[name=attr_clearance] {
@@ -279,15 +301,15 @@ input.sheet-field[name=attr_xpPoints] {
     margin: 0.5rem 0;
     display: flex;
     flex-direction: column;
-    border: 0.1875rem solid rgb(136,182,223);
+    border: 0.1875rem solid rgb(131, 174, 207);;
 }
 
 .sheet-sub-group .sheet-sub-group-header {
     font-family: "Arial Black", "Arial Bold", "Arial", Gadget, sans-serif;
     display: flex;
     padding: 0.4375rem 3rem 0.4375rem 2rem;
-    color: rgb(136,182,223);
-    background-color: rgb(225,243,252);
+    color: rgb(131, 174, 207);
+    background-color: rgb(225, 243, 252);
     font-weight: bold;
 }
 
@@ -308,6 +330,10 @@ input.sheet-field[name=attr_xpPoints] {
 .sheet-field-container-stat {
     flex-grow: 1;
     justify-content: flex-end;
+}
+
+.sheet-part-body-row > .sheet-field-container:last-child {
+    margin-right: 0;
 }
 
 .sheet-part-body-row .sheet-field-container .sheet-field-stat {
@@ -341,9 +367,8 @@ input.sheet-field[name=attr_xpPoints] {
     gap: 0.5rem;
 }
 
-.sheet-field-freeform-text-line {
+input.sheet-field.sheet-field-freeform-text-line {
     border-width: 0 0 0.1875rem 0;
-    outline-color: lightblue;
 }
 
 .sheet-moxie-circles-container {
@@ -381,10 +406,176 @@ input.sheet-field[name=attr_xpPoints] {
     border-width: 0;
 }
 
-.color-dark-blue {
+.sheet-color-dark-blue {
     color: #28394F;
 }
 
-.color-white {
+.sheet-color-white {
     color: white;
+}
+
+
+/* BEGIN: Treason stars. From https://codepen.io/lsirivong/pen/nRNLYL. */
+.sheet-treason-stars-container {
+    margin-top: 0;
+    height: 1.5rem;
+}
+
+.sheet-star-cb-group {
+    /* remove inline-block whitespace */
+    font-size: 0;
+    /* flip the order so we can use the + and ~ combinators */
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    /* the hidden clearer */
+}
+
+.sheet-star-cb-group * {
+    font-size: 1.25rem;
+}
+
+.sheet-star-cb-group > input {
+    display: none;
+}
+
+.sheet-star-cb-group > input + label {
+    /* only enough room for the star */
+    display: inline-block;
+    overflow: hidden;
+    text-indent: 9999px;
+    width: 1.25rem;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.sheet-star-cb-group > input + label:before {
+    display: inline-block;
+    text-indent: -9999px;
+    content: "☆";
+    color: rgb(131, 174, 207);
+}
+
+.sheet-star-cb-group > input:checked ~ label:before, .sheet-star-cb-group > input + label:hover ~ label:before, .sheet-star-cb-group > input + label:hover:before {
+    content: "★";
+    color: #28394F;
+    text-shadow: 0 0 1px #333;
+}
+
+.sheet-star-cb-group > .sheet-star-cb-clear + label {
+    text-indent: -9999px;
+    width: .5rem;
+    margin-left: -.5rem;
+}
+
+.sheet-star-cb-group > .sheet-star-cb-clear + label:before {
+    width: .5rem;
+}
+
+.sheet-star-cb-group:hover > input + label:before {
+    content: "☆";
+    color: rgb(131, 174, 207);
+    text-shadow: none;
+}
+
+.sheet-star-cb-group:hover > input + label:hover ~ label:before, .sheet-star-cb-group:hover > input + label:hover:before {
+    content: "★";
+    color: #4a73a8;
+    text-shadow: 0 0 1px #333;
+}
+
+/* END: Treason stars. */
+
+/* BEGIN: Star overrides to make moxie circles. */
+
+.sheet-moxie-circles-container.sheet-star-cb-group > input + label {
+    width: 2.5rem;
+    height: 2.25rem;
+    font-size: 3.5rem;
+    font-family: monospace;
+    color: rgb(131, 174, 207);
+    line-height: 0.6;
+}
+
+.sheet-moxie-circles-container.sheet-star-cb-group > input + label:before {
+    content: "∅";
+    color: rgb(131, 174, 207);
+}
+
+.sheet-moxie-circles-container.sheet-star-cb-group > input:checked ~ label:before, .sheet-moxie-circles-container.sheet-star-cb-group > input + label:hover ~ label:before, .sheet-moxie-circles-container.sheet-star-cb-group > input + label:hover:before {
+    content: "〇";
+    font-size: 2.125rem;
+    color: rgb(131, 174, 207);
+}
+
+.sheet-moxie-circles-container.sheet-star-cb-group:hover > input + label:hover ~ label:before, .sheet-moxie-circles-container.sheet-star-cb-group:hover > input + label:hover:before {
+    content: "〇";
+    font-size: 2.125rem;
+    color: rgb(131, 174, 207);
+}
+
+.sheet-moxie-circles-container.sheet-star-cb-group > input:checked ~ label, .sheet-moxie-circles-container.sheet-star-cb-group:hover > input + label:hover, .sheet-moxie-circles-container.sheet-star-cb-group > input + label:hover ~ label, .sheet-moxie-circles-container.sheet-star-cb-group > input + label:hover {
+    line-height: 0.4;
+}
+
+.sheet-moxie-circles-container .sheet-field-moxie-circles.sheet-star-cb-clear ~ label {
+    display: none;
+}
+/* END: Star overrides to make moxie circles. */
+
+/* BEGIN: Star overrides to make wound rectangles. */
+.sheet-field-container-wounds {
+    align-items: baseline;
+}
+
+.sheet-field-container-wounds.sheet-star-cb-group > input + label {
+    width: 3.5rem;
+    height: 2.5rem;
+    font-size: 4rem;
+    font-family: monospace;
+    color: rgb(131, 174, 207);
+    transform: scale(1.5,1) translate(-1rem,0);
+    line-height: 0.5;
+}
+
+.sheet-field-container-wounds.sheet-star-cb-group > input + label:before {
+    content: "□";
+    color: rgb(131, 174, 207);
+}
+
+.sheet-field-container-wounds.sheet-star-cb-group > input:checked ~ label:before, .sheet-field-container-wounds.sheet-star-cb-group > input + label:hover ~ label:before, .sheet-field-container-wounds.sheet-star-cb-group > input + label:hover:before {
+    content: "⌧";
+    /*font-size: 2.125rem;*/
+    color: rgb(131, 174, 207);
+    text-shadow: none;
+}
+
+.sheet-field-container-wounds.sheet-star-cb-group:hover > input + label:hover ~ label:before, .sheet-field-container-wounds.sheet-star-cb-group:hover > input + label:hover:before {
+    content: "⌧";
+    /*font-size: 2.125rem;*/
+    color: rgb(81, 117, 145);
+    text-shadow: none;
+}
+
+.sheet-field-container-wounds.sheet-star-cb-group > input:checked ~ label, .sheet-field-container-wounds.sheet-star-cb-group:hover > input + label:hover, .sheet-field-container-wounds.sheet-star-cb-group > input + label:hover ~ label, .sheet-field-container-wounds.sheet-star-cb-group > input + label:hover {
+    transform: scale(1.85,1.4375) translate(-0.9375rem, 0.3125rem);
+}
+
+.sheet-field-container-wounds .sheet-field-wound.sheet-star-cb-clear ~ label {
+    display: none;
+}
+/* END: Star overrides to make wound rectangles. */
+
+
+button.sheet-field-treason-star {
+    border: 0;
+    background-color: transparent;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: rgb(131, 174, 207);
+    padding: 0;
+}
+
+button.sheet-field-treason-star:hover {
+    content: "⌧";
+    color: rgb(81, 117, 145);
 }

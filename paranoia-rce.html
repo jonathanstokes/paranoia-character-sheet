@@ -67,7 +67,7 @@
                     </div>
                     <div class="sheet-field-container">
                         <div class="sheet-field-title">Clone#:</div>
-                        <input class="sheet-field sheet-field-clone-count" type="number" name="attr_cloneCount" value="1"/>
+                        <input class="sheet-field sheet-field-clone-count" type="number" name="attr_clone_count" value="1"/>
                     </div>
                     <div class="sheet-field-container">
                         <div class="sheet-field-title">Gender:</div>
@@ -96,16 +96,24 @@
                     <div class="sheet-field-container">
                         <div class="sheet-field-title">Treason Stars:</div>
                         <div class="sheet-styled-radio-button-container sheet-treason-stars-container">
-                            <input class="sheet-field sheet-field-treason-stars" type="radio" value="1" name="attr_treasonStars"/>
-                            <input class="sheet-field sheet-field-treason-stars" type="radio" value="2" name="attr_treasonStars"/>
-                            <input class="sheet-field sheet-field-treason-stars" type="radio" value="3" name="attr_treasonStars"/>
-                            <input class="sheet-field sheet-field-treason-stars" type="radio" value="4" name="attr_treasonStars"/>
-                            <input class="sheet-field sheet-field-treason-stars" type="radio" value="5" name="attr_treasonStars"/>
+                            <button class="sheet-field sheet-field-treason-star" name="attr_treason_star_1">☆</button>
+                            <button class="sheet-field sheet-field-treason-star" name="attr_treason_star_2">☆</button>
+                            <button class="sheet-field sheet-field-treason-star" name="attr_treason_star_3">☆</button>
+                            <button class="sheet-field sheet-field-treason-star" name="attr_treason_star_4">☆</button>
+                            <button class="sheet-field sheet-field-treason-star" name="attr_treason_star_5">☆</button>
                         </div>
+<!--                        <div class="sheet-styled-radio-button-container sheet-treason-stars-container sheet-star-cb-group">-->
+<!--                            <input class="sheet-field sheet-field-treason-stars" type="radio" value="5" id="treasonStar5" name="attr_treason_stars"/><label for="treasonStar5">5</label>-->
+<!--                            <input class="sheet-field sheet-field-treason-stars" type="radio" value="4" id="treasonStar4" name="attr_treason_stars"/><label for="treasonStar4">4</label>-->
+<!--                            <input class="sheet-field sheet-field-treason-stars" type="radio" value="3" id="treasonStar3" name="attr_treason_stars"/><label for="treasonStar3">3</label>-->
+<!--                            <input class="sheet-field sheet-field-treason-stars" type="radio" value="2" id="treasonStar2" name="attr_treason_stars"/><label for="treasonStar2">2</label>-->
+<!--                            <input class="sheet-field sheet-field-treason-stars" type="radio" value="1" id="treasonStar1" name="attr_treason_stars"/><label for="treasonStar1">1</label>-->
+<!--                            <input class="sheet-field sheet-field-treason-stars sheet-star-cb-clear" type="radio" value="1" id="treasonStar0" name="attr_treason_stars"/><label for="treasonStar0">0</label>-->
+<!--                        </div>-->
                     </div>
                     <div class="sheet-field-container">
                         <div class="sheet-field-title">XP Points:</div>
-                        <input class="sheet-field sheet-field-xp-points" type="number" name="attr_xpPoints"/>
+                        <input class="sheet-field sheet-field-xp-points" type="number" name="attr_xp_points"/>
                     </div>
                 </div>
                 <div class="sheet-sub-group sheet-sub-group-moxie">
@@ -116,19 +124,19 @@
                 <div class="sheet-part-body-row sheet-part-body-row-stat">
                     <div class="sheet-field-container sheet-field-container-stat">
                         <div class="sheet-field-title">Violence:</div>
-                        <input class="sheet-field sheet-field-stat" type="number" name="attr_violenceStat"/>
+                        <input class="sheet-field sheet-field-stat" type="number" name="attr_violence_stat"/>
                     </div>
                     <div class="sheet-field-container sheet-field-container-stat">
                         <div class="sheet-field-title">Brains:</div>
-                        <input class="sheet-field sheet-field-stat" type="number" name="attr_brainsStat"/>
+                        <input class="sheet-field sheet-field-stat" type="number" name="attr_brains_stat"/>
                     </div>
                     <div class="sheet-field-container sheet-field-container-stat">
                         <div class="sheet-field-title">Chutzpah:</div>
-                        <input class="sheet-field sheet-field-stat" type="number" name="attr_chutzpahStat"/>
+                        <input class="sheet-field sheet-field-stat" type="number" name="attr_chutzpah_stat"/>
                     </div>
                     <div class="sheet-field-container sheet-field-container-stat">
                         <div class="sheet-field-title">Mechanics:</div>
-                        <input class="sheet-field sheet-field-stat" type="number" name="attr_mechanicsStat"/>
+                        <input class="sheet-field sheet-field-stat" type="number" name="attr_mechanics_stat"/>
                     </div>
                 </div>
             </div>
@@ -143,78 +151,78 @@
                     <div class="sheet-part-body-column">
                         <div class="sheet-field-container sheet-field-container-skill">
                             <div class="sheet-field-title">Athletics</div>
-                            <input class="sheet-field sheet-field-skill" type="number" name="attr_athleticsSkill"/>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_athletics_skill"/>
                         </div>
                         <div class="sheet-field-container sheet-field-container-skill">
                             <div class="sheet-field-title">Guns</div>
-                            <input class="sheet-field sheet-field-skill" type="number" name="attr_gunsSkill"/>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_guns_skill"/>
                         </div>
                         <div class="sheet-field-container sheet-field-container-skill">
                             <div class="sheet-field-title">Melee</div>
-                            <input class="sheet-field sheet-field-skill" type="number" name="attr_meleeSkill"/>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_melee_skill"/>
                         </div>
                         <div class="sheet-field-container sheet-field-container-skill">
                             <div class="sheet-field-title">Throw</div>
-                            <input class="sheet-field sheet-field-skill" type="number" name="attr_throwSkill"/>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_throw_skill"/>
                         </div>
                     </div>
                     <div class="sheet-part-body-column">
                         <div class="sheet-field-container sheet-field-container-skill">
                             <div class="sheet-field-title">Science</div>
-                            <input class="sheet-field sheet-field-skill" type="number" name="attr_scienceSkill"/>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_science_skill"/>
                         </div>
                         <div class="sheet-field-container sheet-field-container-skill">
                             <div class="sheet-field-title">Psychology</div>
-                            <input class="sheet-field sheet-field-skill" type="number" name="attr_psychologySkill"/>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_psychology_skill"/>
                         </div>
                         <div class="sheet-field-container sheet-field-container-skill">
                             <div class="sheet-field-title">Bureaucracy</div>
-                            <input class="sheet-field sheet-field-skill" type="number" name="attr_bureaucracySkill"/>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_bureaucracy_skill"/>
                         </div>
                         <div class="sheet-field-container sheet-field-container-skill">
                             <div class="sheet-field-title">Alpha Complex</div>
-                            <input class="sheet-field sheet-field-skill" type="number" name="attr_alphaComplexSkill"/>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_alpha_complex_skill"/>
                         </div>
                     </div>
                     <div class="sheet-part-body-column">
                         <div class="sheet-field-container sheet-field-container-skill">
                             <div class="sheet-field-title">Bluff</div>
-                            <input class="sheet-field sheet-field-skill" type="number" name="attr_bluffSkill"/>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_bluff_skill"/>
                         </div>
                         <div class="sheet-field-container sheet-field-container-skill">
                             <div class="sheet-field-title">Charm</div>
-                            <input class="sheet-field sheet-field-skill" type="number" name="attr_charmSkill"/>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_charm_skill"/>
                         </div>
                         <div class="sheet-field-container sheet-field-container-skill">
                             <div class="sheet-field-title">Intimidate</div>
-                            <input class="sheet-field sheet-field-skill" type="number" name="attr_intimidateSkill"/>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_intimidate_skill"/>
                         </div>
                         <div class="sheet-field-container sheet-field-container-skill">
                             <div class="sheet-field-title">Stealth</div>
-                            <input class="sheet-field sheet-field-skill" type="number" name="attr_stealthSkill"/>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_stealth_skill"/>
                         </div>
                     </div>
                     <div class="sheet-part-body-column">
                         <div class="sheet-field-container sheet-field-container-skill">
                             <div class="sheet-field-title">Operate</div>
-                            <input class="sheet-field sheet-field-skill" type="number" name="attr_operateSkill"/>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_operate_skill"/>
                         </div>
                         <div class="sheet-field-container sheet-field-container-skill">
                             <div class="sheet-field-title">Engineer</div>
-                            <input class="sheet-field sheet-field-skill" type="number" name="attr_engineerSkill"/>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_engineer_skill"/>
                         </div>
                         <div class="sheet-field-container sheet-field-container-skill">
                             <div class="sheet-field-title">Program</div>
-                            <input class="sheet-field sheet-field-skill" type="number" name="attr_programSkill"/>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_program_skill"/>
                         </div>
                         <div class="sheet-field-container sheet-field-container-skill">
                             <div class="sheet-field-title">Demolitions</div>
-                            <input class="sheet-field sheet-field-skill" type="number" name="attr_demolitionsSkill"/>
+                            <input class="sheet-field sheet-field-skill" type="number" name="attr_demolitions_skill"/>
                         </div>
                     </div>
                 </div>
-                <input class="sheet-field sheet-field-additionalSkills sheet-field-freeform-text-line" type="text" name="attr_additionalSkills1"/>
-                <input class="sheet-field sheet-field-additionalSkills sheet-field-freeform-text-line" type="text" name="attr_additionalSkills2"/>
+                <input class="sheet-field sheet-field-additionalSkills sheet-field-freeform-text-line" type="text" name="attr_additional_skills_1"/>
+                <input class="sheet-field sheet-field-additionalSkills sheet-field-freeform-text-line" type="text" name="attr_additional_skills_2"/>
             </div>
         </div>
         <div class="sheet-part">
@@ -229,15 +237,16 @@
                             Moxie <span class="sheet-chevron">›››</span>
                         </div>
                         <div class="sheet-sub-group-body">
-                            <div class="sheet-styled-radio-button-container sheet-moxie-circles-container">
-                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="1" name="attr_moxieCircles"/>
-                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="2" name="attr_moxieCircles"/>
-                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="3" name="attr_moxieCircles"/>
-                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="4" name="attr_moxieCircles"/>
-                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="5" name="attr_moxieCircles"/>
-                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="6" name="attr_moxieCircles"/>
-                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="7" name="attr_moxieCircles"/>
-                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="8" name="attr_moxieCircles"/>
+                            <div class="sheet-styled-radio-button-container sheet-moxie-circles-container sheet-star-cb-group">
+                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="8" id="moxieCircle8" name="attr_moxie_circles"/><label for="moxieCircle8">8</label>
+                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="7" id="moxieCircle7" name="attr_moxie_circles"/><label for="moxieCircle7">7</label>
+                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="6" id="moxieCircle6" name="attr_moxie_circles"/><label for="moxieCircle6">6</label>
+                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="5" id="moxieCircle5" name="attr_moxie_circles"/><label for="moxieCircle5">5</label>
+                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="4" id="moxieCircle4" name="attr_moxie_circles"/><label for="moxieCircle4">4</label>
+                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="3" id="moxieCircle3" name="attr_moxie_circles"/><label for="moxieCircle3">3</label>
+                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="2" id="moxieCircle2" name="attr_moxie_circles"/><label for="moxieCircle2">2</label>
+                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="1" id="moxieCircle1" name="attr_moxie_circles"/><label for="moxieCircle1">1</label>
+                                <input class="sheet-field sheet-field-moxie-circles sheet-star-cb-clear" type="radio" value="0" id="moxieCircle0" name="attr_moxie_circles"/><label for="moxieCircle0">0</label>
                             </div>
                         </div>
                     </div>
@@ -246,45 +255,38 @@
                             Wounds <span class="sheet-chevron">›››</span>
                         </div>
                         <div class="sheet-sub-group-body">
-                            <div class="sheet-field-container-wounds">
-                                <div class="sheet-field-container sheet-field-container-wound">
-                                    <div class="sheet-field-title">Hurt</div>
-                                    <input class="sheet-field sheet-field-skill" type="radio" value="hurt" name="attr_woundLevel"/>
-                                </div>
-                                <div class="sheet-field-container sheet-field-container-wound">
-                                    <div class="sheet-field-title">Injured</div>
-                                    <input class="sheet-field sheet-field-skill" type="radio" value="injured" name="attr_woundLevel"/>
-                                </div>
-                                <div class="sheet-field-container sheet-field-container-wound">
-                                    <div class="sheet-field-title">Maimed</div>
-                                    <input class="sheet-field sheet-field-skill" type="radio" value="maimed" name="attr_woundLevel"/>
-                                </div>
-                                <div class="sheet-field-container sheet-field-container-wound">
-                                    <div class="sheet-field-title">Dead</div>
-                                    <input class="sheet-field sheet-field-skill" type="radio" value="dead" name="attr_woundLevel"/>
-                                </div>
+                            <div class="sheet-field-container-wounds sheet-star-cb-group">
+                                <input class="sheet-field sheet-field-wound" type="radio" value="dead" id="woundLevelDead" name="attr_wound_level"/><label for="woundLevelDead">4</label>
+                                <span class="sheet-field-title">Dead</span>
+                                <input class="sheet-field sheet-field-wound" type="radio" value="maimed" id="woundLevelMaimed" name="attr_wound_level"/><label for="woundLevelMaimed">3</label>
+                                <span class="sheet-field-title">Maimed</span>
+                                <input class="sheet-field sheet-field-wound" type="radio" value="injured" id="woundLevelInjured" name="attr_wound_level"/><label for="woundLevelInjured">2</label>
+                                <span class="sheet-field-title">Injured</span>
+                                <input class="sheet-field sheet-field-wound" type="radio" value="hurt" id="woundLevelHurt" name="attr_wound_level"/><label for="woundLevelHurt">1</label>
+                                <span class="sheet-field-title">Hurt</span>
+                                <input class="sheet-field sheet-field-wound sheet-star-cb-clear" type="radio" value="0" id="woundLevelNone" name="attr_wound_level"/><label for="moxieCircle0">0</label>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="sheet-sub-group sheet-sub-group-moxie">
+                <div class="sheet-sub-group sheet-sub-group-memory">
                     <div class="sheet-sub-group-header">
                         Memory <span class="sheet-chevron">›››</span>
                     </div>
                     <div class="sheet-sub-group-body">
                         <div class="sheet-memory-container">
                             <div class="sheet-memory-row">
-                                <input class="sheet-field sheet-field-memory sheet-field-freeform-text-line" type="text" name="attr_memory1"/>
+                                <input class="sheet-field sheet-field-memory sheet-field-freeform-text-line" type="text" name="attr_memory_1"/>
                             </div>
                             <div class="sheet-memory-row">
-                                <input class="sheet-field sheet-field-memory sheet-field-freeform-text-line" type="text" name="attr_memory2"/>
+                                <input class="sheet-field sheet-field-memory sheet-field-freeform-text-line" type="text" name="attr_memory_2"/>
                                 <div class="sheet-zb-container">
-                                    <input class="sheet-field sheet-field-memory-zb sheet-field-freeform-text-line" type="text" name="attr_memoryZb"/>
+                                    <input class="sheet-field sheet-field-memory-zb sheet-field-freeform-text-line" type="text" name="attr_memory_zb"/>
                                     <div class="sheet-field-title">ZB</div>
                                 </div>
                             </div>
                         </div>
-                    </div>`
+                    </div>
                 </div>
             </div>
         </div>
@@ -296,8 +298,8 @@
             <div class="sheet-part-body sheet-part-body-skill">
                 <div class="sheet-sub-group sheet-sub-group-equipment">
                     <div class="sheet-sub-group-body">
-                        <input class="sheet-field sheet-field-equipment sheet-field-freeform-text-line" type="text" name="attr_equipment1"/>
-                        <input class="sheet-field sheet-field-equipment sheet-field-freeform-text-line" type="text" name="attr_equipment2"/>
+                        <input class="sheet-field sheet-field-equipment sheet-field-freeform-text-line" type="text" name="attr_equipment_1"/>
+                        <input class="sheet-field sheet-field-equipment sheet-field-freeform-text-line" type="text" name="attr_equipment_2"/>
                     </div>
                 </div>
             </div>
