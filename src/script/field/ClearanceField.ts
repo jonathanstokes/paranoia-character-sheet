@@ -5,7 +5,7 @@ export class ClearanceField {
   static init() {
     // When 'clearance' changes, also change 'clearance_letter' to match
     on(`change:clearance`, () => {
-      getAttrs(['clearance'], values => {
+      getAttrs(['clearance'], (values) => {
         const clearanceWord = values['clearance'];
         const clearanceLetter = clearanceWord.substring(0, 1).toUpperCase();
 

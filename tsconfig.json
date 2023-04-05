@@ -17,7 +17,7 @@
       "bun-types"
       // add Bun global
     ],
-    "outDir": "./build/js/"
+    "outDir": "./build/out-tsc"
   },
   "include": [
     "src/script/**/*",

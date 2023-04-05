@@ -4,12 +4,16 @@
   "type": "module",
   "scripts": {
     "compile": "bun compile-sass && bun compile-script && bun run ./tool/compile-html.ts",
-    "compile-script": "tsc --outFile build/js/index.js --module amd src/script/index.ts src/@types/global.d.ts",
+    "compile-script": "rm -rf ./build/js && tsc && rollup --config tool/rollup.config.js",
     "compile-sass": "sass --no-source-map --style=compressed src/scss:build/css",
-    "deploy": "bun run ./tool/deploy-character-sheet.ts"
+    "deploy": "bun run tool/deploy-character-sheet-via-api.ts"
   },
   "devDependencies": {
-    "bun-types": "^0.5.0"
+    "bun-types": "^0.5.0",
+    "deepmerge": "^4.3.1",
+    "rimraf": "^4.4.1",
+    "rollup": "^3.20.2",
+    "@open-wc/building-rollup": "^2.2.2"
   },
   "dependencies": {
     "axios": "^1.3.4",

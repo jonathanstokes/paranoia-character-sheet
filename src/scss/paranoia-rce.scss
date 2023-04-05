@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+@import "./field/_treason-stars";
+
 .sheet-main {
     text-transform: uppercase;
     background-color: white;
@@ -381,19 +383,20 @@ input.sheet-field.sheet-field-freeform-text-line {
 }
 
 
-/* BEGIN: Treason stars. From https://codepen.io/lsirivong/pen/nRNLYL. */
+/*
+// BEGIN: Treason stars. From https://codepen.io/lsirivong/pen/nRNLYL.
 .sheet-treason-stars-container {
     margin-top: 0;
     height: 1.5rem;
 }
 
 .sheet-star-cb-group {
-    /* remove inline-block whitespace */
+    // remove inline-block whitespace
     font-size: 0;
-    /* flip the order so we can use the + and ~ combinators */
+    // flip the order so we can use the + and ~ combinators
     unicode-bidi: bidi-override;
     direction: rtl;
-    /* the hidden clearer */
+    // the hidden clearer
 }
 
 .sheet-star-cb-group * {
@@ -405,7 +408,7 @@ input.sheet-field.sheet-field-freeform-text-line {
 }
 
 .sheet-star-cb-group > input + label {
-    /* only enough room for the star */
+    // only enough room for the star
     display: inline-block;
     overflow: hidden;
     text-indent: 9999px;
@@ -449,9 +452,9 @@ input.sheet-field.sheet-field-freeform-text-line {
     text-shadow: 0 0 1px #333;
 }
 
-/* END: Treason stars. */
+// END: Treason stars.
 
-/* BEGIN: Star overrides to make moxie circles. */
+// BEGIN: Star overrides to make moxie circles.
 
 .sheet-moxie-circles-container.sheet-star-cb-group > input + label {
     width: 2.5rem;
@@ -486,9 +489,9 @@ input.sheet-field.sheet-field-freeform-text-line {
 .sheet-moxie-circles-container .sheet-field-moxie-circles.sheet-star-cb-clear ~ label {
     display: none;
 }
-/* END: Star overrides to make moxie circles. */
+// END: Star overrides to make moxie circles.
 
-/* BEGIN: Star overrides to make wound rectangles. */
+// BEGIN: Star overrides to make wound rectangles.
 .sheet-field-container-wounds {
     align-items: baseline;
 }
@@ -510,14 +513,14 @@ input.sheet-field.sheet-field-freeform-text-line {
 
 .sheet-field-container-wounds.sheet-star-cb-group > input:checked ~ label:before, .sheet-field-container-wounds.sheet-star-cb-group > input + label:hover ~ label:before, .sheet-field-container-wounds.sheet-star-cb-group > input + label:hover:before {
     content: "⌧";
-    /*font-size: 2.125rem;*/
+    // font-size: 2.125rem;
     color: rgb(131, 174, 207);
     text-shadow: none;
 }
 
 .sheet-field-container-wounds.sheet-star-cb-group:hover > input + label:hover ~ label:before, .sheet-field-container-wounds.sheet-star-cb-group:hover > input + label:hover:before {
     content: "⌧";
-    /*font-size: 2.125rem;*/
+    // font-size: 2.125rem;
     color: rgb(81, 117, 145);
     text-shadow: none;
 }
@@ -529,33 +532,8 @@ input.sheet-field.sheet-field-freeform-text-line {
 .sheet-field-container-wounds .sheet-field-wound.sheet-star-cb-clear ~ label {
     display: none;
 }
-/* END: Star overrides to make wound rectangles. */
-
-
-button.sheet-field-treason-star {
-    border: 0;
-    background-color: transparent;
-    font-size: 1.5rem;
-    line-height: 1;
-    color: rgb(131, 174, 207);
-    padding: 0;
-}
-
-button.sheet-field-treason-star::before {
-    content: "☆";
-}
-
-button.sheet-field-treason-star:hover, button.sheet-field-treason-star.hovered {
-    color: rgb(81, 117, 145);
-}
-
-button.sheet-field-treason-star.checked {
-    color: #4a73a8;
-}
-
-button.sheet-field-treason-star:hover::before, button.sheet-field-treason-star.hovered::before, button.sheet-field-treason-star:checked::before {
-    content: "★";
-}
+// END: Star overrides to make wound rectangles.
+*/
 
 .sheet-color-infrared {
     color: rgb(26, 25, 25);

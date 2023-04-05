@@ -44,44 +44,49 @@ const email = 'something@googlemail.com';
 const password = 'password';
 
 const uploadCharacterSheet = async (campaignId: string, characterSheetHtml: string, characterSheetCss: string) => {
-  const connection = axios.create({withCredentials: true});
-  const loginForm = new FormData();
-  loginForm.append('email', email);
-  loginForm.append('password', password);
-  const loginResponse = await connection.post(`https://app.roll20.net/sessions/create`, loginForm, {
-    params: {
-      backto: 'https://roll20.net/'
-    },
-  });
-
-
-  // const loginForm = new URLSearchParams();
+  // const connection = axios.create({withCredentials: true});
+  // const loginForm = new FormData();
   // loginForm.append('email', email);
   // loginForm.append('password', password);
-  // const loginResponse = await fetch(`https://app.roll20.net/sessions/create?backto=${encodeURIComponent('https://roll20.net/')}`, {
-  //   credentials: 'same-origin',
-  //   method: 'post',
-  //   body: loginForm,
-  //   headers: {
-  //     'content-type': 'application/x-www-form-urlencoded',
-  //     cookie: ''
-  //   }
+  // const loginResponse = await connection.post(`https://app.roll20.net/sessions/create`, loginForm, {
+  //   params: {
+  //     backto: 'https://roll20.net/'
+  //   },
   // });
-  // console.log("loginResponse:", {
-  //   response: loginResponse,
-  //   headers: loginResponse.headers.toJSON(),
-  //   text: await loginResponse.text()
-  // });
-  // const parseLoginCookies = (setCookieValue) => {
-  //   const parts = setCookieValue.split(';');
-  //   return `${parts[0]};`;
-  // };
-  // console.log("cookies:", );
-  // const loginCookies = parseLoginCookies(loginResponse.headers.get('set-cookie'));
-  console.log("login response:", loginResponse);
+  //
+  const credentialPolicy = 'include'; // 'same-origin',
+
+  const loginForm = new URLSearchParams();
+  loginForm.append('email', email);
+  loginForm.append('password', password);
+  const loginResponse = await fetch(`https://app.roll20.net/sessions/create?backto=${encodeURIComponent('https://roll20.net/')}`, {
+    credentials: credentialPolicy,
+    method: 'post',
+    body: loginForm,
+    headers: {
+      'content-type': 'application/x-www-form-urlencoded',
+      cookie: ''
+    }
+  });
+  console.log("loginResponse:", {
+    response: loginResponse,
+    headers: loginResponse.headers.toJSON(),
+    text: await loginResponse.text()
+  });
+  const parseLoginCookies = (setCookieValue) => {
+    const parts = setCookieValue.split(';');
+    return `${parts[0]};`;
+  };
+  const loginCookies = parseLoginCookies(loginResponse.headers.get('set-cookie'));
+  console.log("cookies:", loginCookies);
+  // console.log("login response:", loginResponse);
   if (loginResponse.status >= 400) {
     throw new Error(`Error(${loginResponse.status}) ${loginResponse.statusText}`)
   }
+
+  const testResponse = await fetch(`https://app.roll20.net/campaigns/campaignsettings/14640502`, {credentials: credentialPolicy, headers: {accept: 'application/json', Cookie: loginCookies}});
+  console.log("testResponse", testResponse);
+
 /*
 
   const data = new URLSearchParams();

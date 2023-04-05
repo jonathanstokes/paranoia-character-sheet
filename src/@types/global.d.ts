@@ -91,7 +91,7 @@ declare global {
 
   function on(eventName: string, callbackFn: (eventInfo: EventInfo) => void);
 
-  function getAttrs(attributeNames: string[], callbackFn: (values: string[]) => void);
+  function getAttrs(attributeNames: string[], callbackFn: (values: {[attributeName: string]: string}) => void);
   function setAttrs(attributeMap: {[attributeName: string]: string | number});
 
   function $20(selector: string): JQueryProxy;
