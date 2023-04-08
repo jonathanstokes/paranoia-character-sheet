@@ -2,7 +2,7 @@
 
 $circle-color: $field-border-color;
 $slash-color: $dark-primary-text-color;
-$slash-hovered-color: lighten($slash-color, 40%);
+$slash-hovered-color: $alternative-dark-primary-text-color;
 
 .sheet-moxie-circles-container {
   margin: 0 0.75rem;

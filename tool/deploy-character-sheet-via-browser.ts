@@ -3,7 +3,7 @@ import puppeteer from 'puppeteer';
 import {addExtra} from 'puppeteer-extra'
 import StealthPlugin from 'puppeteer-extra-plugin-stealth'
 import {addSlashes} from "slashes";
-import * as dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+import * as dotenv from 'dotenv';
 
 dotenv.config();
 const email = process.env.ROLL20_EMAIL as string;
@@ -38,7 +38,7 @@ const deploy = async (campaignId: string, layoutHtml: string, styleCss: string) 
           if (i >= tryCount - 1) {
             throw err;
           } else {
-            // page.reload();
+            await pause(1000);
           }
         }
       }
@@ -54,9 +54,9 @@ const deploy = async (campaignId: string, layoutHtml: string, styleCss: string) 
       await page.waitForNavigation();
     } else {
       log("Opening login page.");
-      await page.goto(`https://app.roll20.net/`);
+      await page.goto(`https://app.roll20.net/`, {timeout: 45050});
       try {
-        await page.waitForSelector('form.login input[name="email"]', {timeout: 7500});
+        await page.waitForSelector('form.login input[name="email"]', {timeout: 9500});
       } catch (timedout) {
         log("Re-routing to login page.");
         // start: retryWithReload()

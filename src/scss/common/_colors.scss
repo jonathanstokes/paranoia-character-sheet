@@ -4,6 +4,8 @@ $dark-primary-text-color: rgb(37, 57, 79);
 $light-primary-text-color: rgb(255,255,254);
 $neutral-text-color: rgb(123, 174, 208);
 
+$alternative-dark-primary-text-color: lighten($dark-primary-text-color, 40%);
+
 $field-border-color: $neutral-text-color;
 
 $dark-background-color: $dark-primary-text-color;

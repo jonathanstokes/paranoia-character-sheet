@@ -1,8 +1,10 @@
 @charset "UTF-8";
 
-@import "./field/_field";
-@import "./field/_treason-stars";
-@import "./field/_moxie-circles";
+@import "./group/group";
+@import "./field/field";
+@import "./field/treason-stars";
+@import "./field/moxie-circles";
+@import "./field/wound-boxes";
 
 .sheet-main {
     text-transform: uppercase;
@@ -179,33 +181,6 @@
     align-content: stretch;
 }
 
-.sheet-sub-group {
-    font-family: "Arial", Gadget, sans-serif;
-    margin: 0.5rem 0;
-    display: flex;
-    flex-direction: column;
-    border: 0.1875rem solid rgb(131, 174, 207);;
-}
-
-.sheet-sub-group .sheet-sub-group-header {
-    font-family: "Arial Black", "Arial Bold", "Arial", Gadget, sans-serif;
-    display: flex;
-    padding: 0.4375rem 3rem 0.4375rem 2rem;
-    color: rgb(131, 174, 207);
-    background-color: rgb(225, 243, 252);
-    font-weight: bold;
-}
-
-.sheet-sub-group .sheet-sub-group-header .sheet-chevron {
-    font-size: 1.5rem;
-    bottom: -0.0625rem;
-    margin-left: 0.5rem;
-}
-
-.sheet-sub-group-body {
-    padding: 0.5rem 0.75rem;
-}
-
 .sheet-part-body-row-stat {
     gap: 4rem;
 }
@@ -250,15 +225,6 @@
     gap: 0.5rem;
 }
 
-.sheet-field-container-wounds {
-    display: flex;
-    align-items: flex-end;
-    gap: 1.25rem;
-}
-
-.sheet-field-container-wounds .sheet-field-container {
-    margin-right: 0;
-}
 
 .sheet-memory-row {
     display: flex;

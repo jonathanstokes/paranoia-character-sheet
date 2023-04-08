@@ -2,7 +2,7 @@
 
 $star-outline-color: $field-border-color;
 $star-checked-color: $dark-primary-text-color;
-$star-hovered-color: lighten($star-checked-color, 50%);
+$star-hovered-color: $alternative-dark-primary-text-color;
 $star-hovered-shadow-color: $star-outline-color;
 
 .sheet-treason-stars-container {

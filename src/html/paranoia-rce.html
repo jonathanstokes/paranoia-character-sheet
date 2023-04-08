@@ -281,25 +281,36 @@
                             Wounds <span class="sheet-chevron">›››</span>
                         </div>
                         <div class="sheet-sub-group-body">
-                            <div class="sheet-field-container-wounds sheet-star-cb-group">
-                                <input class="sheet-field sheet-field-wound" type="radio" value="dead"
-                                       id="woundLevelDead" name="attr_wound_level"/><label
-                                    for="woundLevelDead">4</label>
-                                <span class="sheet-field-title">Dead</span>
-                                <input class="sheet-field sheet-field-wound" type="radio" value="maimed"
-                                       id="woundLevelMaimed" name="attr_wound_level"/><label
-                                    for="woundLevelMaimed">3</label>
-                                <span class="sheet-field-title">Maimed</span>
-                                <input class="sheet-field sheet-field-wound" type="radio" value="injured"
-                                       id="woundLevelInjured" name="attr_wound_level"/><label
-                                    for="woundLevelInjured">2</label>
-                                <span class="sheet-field-title">Injured</span>
-                                <input class="sheet-field sheet-field-wound" type="radio" value="hurt"
-                                       id="woundLevelHurt" name="attr_wound_level"/><label
-                                    for="woundLevelHurt">1</label>
-                                <span class="sheet-field-title">Hurt</span>
-                                <input class="sheet-field sheet-field-wound sheet-star-cb-clear" type="radio" value="0"
-                                       id="woundLevelNone" name="attr_wound_level"/><label for="moxieCircle0">0</label>
+                            <div class="sheet-field-container-wounds">
+                                <div class="sheet-field-container sheet-field-container-wound">
+                                    <div class="sheet-field-title">Hurt</div>
+                                    <button class="sheet-field sheet-field-wound-box" name="wound_box_hurt">
+                                        <span class="sheet-slash">/</span>
+                                        <span class="sheet-backslash">\</span>
+                                    </button>
+                                </div>
+                                <div class="sheet-field-container sheet-field-container-wound">
+                                    <div class="sheet-field-title">Injured</div>
+                                    <button class="sheet-field sheet-field-wound-box" name="wound_box_injured">
+                                        <span class="sheet-slash">/</span>
+                                        <span class="sheet-backslash">\</span>
+                                    </button>
+                                </div>
+                                <div class="sheet-field-container sheet-field-container-wound">
+                                    <div class="sheet-field-title">Maimed</div>
+                                    <button class="sheet-field sheet-field-wound-box" name="wound_box_maimed">
+                                        <span class="sheet-slash">/</span>
+                                        <span class="sheet-backslash">\</span>
+                                    </button>
+                                </div>
+                                <div class="sheet-field-container sheet-field-container-wound">
+                                    <div class="sheet-field-title">Dead</div>
+                                    <button class="sheet-field sheet-field-wound-box" name="wound_box_dead">
+                                        <div class="sheet-slash">/</div>
+                                        <div class="sheet-backslash">\</div>
+                                    </button>
+                                </div>
+                                <input name="attr_wound_level" type="hidden" value="none"/>
                             </div>
                         </div>
                     </div>
