@@ -5,6 +5,7 @@ $slash-color: $dark-primary-text-color;
 $slash-hovered-color: lighten($slash-color, 40%);
 
 .sheet-moxie-circles-container {
+  margin: 0 0.75rem;
 
   .sheet-field-moxie-circle {
     position: relative;
