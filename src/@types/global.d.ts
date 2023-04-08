@@ -89,10 +89,19 @@ declare global {
 
   }
 
+  type ValuesResult = {[attributeName: string]: string};
+  type ValuesCallback = (values: ValuesResult) => void;
+
   function on(eventName: string, callbackFn: (eventInfo: EventInfo) => void);
 
-  function getAttrs(attributeNames: string[], callbackFn: (values: {[attributeName: string]: string}) => void);
-  function setAttrs(attributeMap: {[attributeName: string]: string | number});
+  function getAttrs(attributeNames: string[], callbackFn: ValuesCallback);
+  function setAttrs(attributeMap: {[attributeName: string]: string | number}, options?: { silent: boolean }, callbackFn?: ValuesCallback);
 
   function $20(selector: string): JQueryProxy;
+
+  function getActiveCharacterId(): string | null;
+
+  function getSectionIDs(section_name: string,callbackFn: (idArray: string[]) => void);
+
+  let self;
 }

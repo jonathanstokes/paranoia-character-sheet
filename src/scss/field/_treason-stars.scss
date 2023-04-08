@@ -2,7 +2,8 @@
 
 $star-outline-color: $field-border-color;
 $star-checked-color: $dark-primary-text-color;
-$star-hovered-color: lighten($star-checked-color, 0.8);
+$star-hovered-color: lighten($star-checked-color, 50%);
+$star-hovered-shadow-color: $star-outline-color;
 
 .sheet-treason-stars-container {
 
@@ -19,15 +20,16 @@ $star-hovered-color: lighten($star-checked-color, 0.8);
     content: "☆";
   }
 
-  button.sheet-field-treason-star:hover, button.sheet-field-treason-star.hovered {
-    color: $star-hovered-color;
-  }
-
   button.sheet-field-treason-star.checked {
     color: $star-checked-color;
   }
 
-  button.sheet-field-treason-star:hover::before, button.sheet-field-treason-star.hovered::before, button.sheet-field-treason-star:checked::before {
+  button.sheet-field-treason-star.hovered {
+    color: $star-hovered-color;
+    text-shadow: 0 0 0.25rem $star-hovered-shadow-color;
+  }
+
+  button.sheet-field-treason-star.hovered::before, button.sheet-field-treason-star.checked::before {
     content: "★";
   }
 

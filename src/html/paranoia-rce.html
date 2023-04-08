@@ -101,12 +101,13 @@
                     <div class="sheet-field-container">
                         <div class="sheet-field-title">Treason Stars:</div>
                         <div class="sheet-styled-radio-button-container sheet-treason-stars-container">
-                            <button class="sheet-field sheet-field-treason-star" name="attr_treason_star_1"></button>
-                            <button class="sheet-field sheet-field-treason-star" name="attr_treason_star_2"></button>
-                            <button class="sheet-field sheet-field-treason-star" name="attr_treason_star_3"></button>
-                            <button class="sheet-field sheet-field-treason-star" name="attr_treason_star_4"></button>
-                            <button class="sheet-field sheet-field-treason-star" name="attr_treason_star_5"></button>
+                            <button class="sheet-field sheet-field-treason-star" name="treason_star_1"></button>
+                            <button class="sheet-field sheet-field-treason-star" name="treason_star_2"></button>
+                            <button class="sheet-field sheet-field-treason-star" name="treason_star_3"></button>
+                            <button class="sheet-field sheet-field-treason-star" name="treason_star_4"></button>
+                            <button class="sheet-field sheet-field-treason-star" name="treason_star_5"></button>
                         </div>
+                        <input type="hidden" name="attr_treason_stars" value="0"/>
                     </div>
                     <div class="sheet-field-container">
                         <div class="sheet-field-title">XP Points:</div>
@@ -238,25 +239,40 @@
                             Moxie <span class="sheet-chevron">›››</span>
                         </div>
                         <div class="sheet-sub-group-body">
-                            <div class="sheet-styled-radio-button-container sheet-moxie-circles-container sheet-star-cb-group">
-                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="8"
-                                       id="moxieCircle8" name="attr_moxie_circles"/><label for="moxieCircle8">8</label>
-                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="7"
-                                       id="moxieCircle7" name="attr_moxie_circles"/><label for="moxieCircle7">7</label>
-                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="6"
-                                       id="moxieCircle6" name="attr_moxie_circles"/><label for="moxieCircle6">6</label>
-                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="5"
-                                       id="moxieCircle5" name="attr_moxie_circles"/><label for="moxieCircle5">5</label>
-                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="4"
-                                       id="moxieCircle4" name="attr_moxie_circles"/><label for="moxieCircle4">4</label>
-                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="3"
-                                       id="moxieCircle3" name="attr_moxie_circles"/><label for="moxieCircle3">3</label>
-                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="2"
-                                       id="moxieCircle2" name="attr_moxie_circles"/><label for="moxieCircle2">2</label>
-                                <input class="sheet-field sheet-field-moxie-circles" type="radio" value="1"
-                                       id="moxieCircle1" name="attr_moxie_circles"/><label for="moxieCircle1">1</label>
-                                <input class="sheet-field sheet-field-moxie-circles sheet-star-cb-clear" type="radio"
-                                       value="0" id="moxieCircle0" name="attr_moxie_circles"/><label for="moxieCircle0">0</label>
+                            <div class="sheet-styled-radio-button-container sheet-moxie-circles-container">
+                                <button class="sheet-field sheet-field-moxie-circle" name="moxie_circle_1">
+                                    <div class="sheet-slash">/</div>
+                                    <div class="sheet-circle">〇</div>
+                                </button>
+                                <button class="sheet-field sheet-field-moxie-circle" name="moxie_circle_2">
+                                    <div class="sheet-slash">/</div>
+                                    <div class="sheet-circle">〇</div>
+                                </button>
+                                <button class="sheet-field sheet-field-moxie-circle" name="moxie_circle_3">
+                                    <div class="sheet-slash">/</div>
+                                    <div class="sheet-circle">〇</div>
+                                </button>
+                                <button class="sheet-field sheet-field-moxie-circle" name="moxie_circle_4">
+                                    <div class="sheet-slash">/</div>
+                                    <div class="sheet-circle">〇</div>
+                                </button>
+                                <button class="sheet-field sheet-field-moxie-circle" name="moxie_circle_5">
+                                    <div class="sheet-slash">/</div>
+                                    <div class="sheet-circle">〇</div>
+                                </button>
+                                <button class="sheet-field sheet-field-moxie-circle" name="moxie_circle_6">
+                                    <div class="sheet-slash">/</div>
+                                    <div class="sheet-circle">〇</div>
+                                </button>
+                                <button class="sheet-field sheet-field-moxie-circle" name="moxie_circle_7">
+                                    <div class="sheet-slash">/</div>
+                                    <div class="sheet-circle">〇</div>
+                                </button>
+                                <button class="sheet-field sheet-field-moxie-circle" name="moxie_circle_8">
+                                    <div class="sheet-slash">/</div>
+                                    <div class="sheet-circle">〇</div>
+                                </button>
+                                <input type="hidden" name="attr_moxie_points" value="8"/>
                             </div>
                         </div>
                     </div>

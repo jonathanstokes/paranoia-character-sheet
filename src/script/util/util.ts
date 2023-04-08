@@ -4,3 +4,5 @@ export const stripAttr = (nameAttribute: string) => {
   }
   return nameAttribute;
 };
+
+export const workerScope: {} /*DedicatedWorkerGlobalScope*/ = self;

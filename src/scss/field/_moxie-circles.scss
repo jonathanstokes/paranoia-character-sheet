@@ -1,0 +1,45 @@
+@import "../common/_colors";
+
+$circle-color: $field-border-color;
+$slash-color: $dark-primary-text-color;
+$slash-hovered-color: lighten($slash-color, 40%);
+
+.sheet-moxie-circles-container {
+
+  .sheet-field-moxie-circle {
+    position: relative;
+    padding: 0;
+    border: 0;
+
+    .sheet-circle {
+      font-size: 2.5rem;
+      font-family: monospace;
+      color: $circle-color;
+    }
+
+    .sheet-slash {
+      font-family: "Comic Sans MS", "Comic Sans", cursive;
+      font-size: 3.25rem;
+      position: absolute;
+      bottom: 10%;
+      left: 15%;
+      color: $dark-primary-text-color;
+      visibility: hidden;
+    }
+
+    &.checked {
+      .sheet-slash {
+        visibility: visible;
+      }
+    }
+
+    &.hovered {
+      .sheet-slash {
+        visibility: visible;
+        font-weight: bold;
+        color: $slash-hovered-color;
+      }
+    }
+  }
+
+}
