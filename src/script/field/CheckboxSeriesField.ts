@@ -65,13 +65,44 @@ export abstract class CheckboxSeriesField<V extends string | number> {
       console.log(`setting ${this.attributeName} to ${newValue}${silent ? '(silently).' : '.'}`);
       await setAttrsAsync({[this.attributeName]: newValue}, silent ? {silent: true} : undefined);
     } else {
-      console.log(`${this.attributeName} already set to ${newValue}.`);
+      console.log(`${this.attributeName} already set to ${newValue}.`, silent);
     }
   }
 
-  protected abstract getValueForControl(controlName: string | null): V;
+  /**
+   * Makes the given control no longer checked, and marks the control to its left (for left-to-right fields) instead.
+   * If this is the last available control, then no control will be selected.
+   */
+  protected async deselectControlSelection(controlName: string) {
+    const nextControl = this.getPreviousControlName(controlName);
+    if (nextControl) {
+      await this.setControlSelection(nextControl);
+    } else {
+      // Clear all selections
+      await this.setControlSelection(null);
+    }
+  }
 
   protected abstract getControlNameForValue(value: V | string): string | null;
+
+  /**
+   * Returns the control that comes before this one in sequence, or `null` if this is the first control in the sequence
+   * and therefore has no previous control.
+   * For right-to-left fields, the right-most control is the first in the sequence.
+   */
+  protected getPreviousControlName(controlName: string): string | null {
+    const orderedProfiles = this.direction === 'right-to-left' ? [...this.controlProfiles].reverse() : this.controlProfiles;
+    let previousControlName: string | null = null;
+    for (const {name} of orderedProfiles) {
+      if (controlName === name) {
+        return previousControlName;
+      }
+      previousControlName = name;
+    }
+    return null;
+  }
+
+  protected abstract getValueForControl(controlName: string | null): V;
 
   /**
    * Called when the attribute that this field edits has been modified, possibly by external forces, or possibly by
@@ -98,12 +129,16 @@ export abstract class CheckboxSeriesField<V extends string | number> {
   }
 
   protected async handleControlClick(clickedControlName: string) {
-    await this.setControlSelection(clickedControlName).catch(err => console.error(`Error handling click on control ${clickedControlName}:`, err));
+    if (this.isMainSelection(clickedControlName)) {
+      await this.deselectControlSelection(clickedControlName);
+    } else {
+      await this.setControlSelection(clickedControlName);
+    }
     await this.removeClassFromAll('hovered');
   }
 
   protected handleControlHover(clickedControlName: string) {
-    this.setClassToControlAndImplied('hovered', clickedControlName);
+    this.setClassForControlAndImpliedControls('hovered', clickedControlName);
   }
 
   /** Called **from the constructor** of this parent class to initialize the value. */
@@ -113,26 +148,34 @@ export abstract class CheckboxSeriesField<V extends string | number> {
     await this.setControlSelection(this.getControlNameForValue(stringValue), true);
   }
 
+  protected isMainSelection(controlName: string): boolean {
+    return controlName === this.displayedSelectionControlName;
+  }
+
   protected removeClassFromAll(className: string) {
     this.controlProfiles.forEach(profile => $20(profile.selector).removeClass(className));
   }
 
-  protected setClassToControlAndImplied(className: string, clickedControlName: string | null) {
-    let adding = this.direction === 'left-to-right';
-    for (const profile of this.controlProfiles) {
-      if (this.direction === 'right-to-left' && profile.name === clickedControlName) {
-        adding = true;
+  protected setClassForControlAndImpliedControls(className: string, clickedControlName: string | null) {
+    if (clickedControlName) {
+      let adding = this.direction === 'left-to-right';
+      for (const profile of this.controlProfiles) {
+        if (this.direction === 'right-to-left' && profile.name === clickedControlName) {
+          adding = true;
+        }
+        const el = $20(profile.selector);
+        // console.log(`for ${profile.name}: adding=${adding}`);
+        if (adding) {
+          el.addClass(className);
+        } else {
+          el.removeClass(className);
+        }
+        if (this.direction === 'left-to-right' && profile.name === clickedControlName) {
+          adding = false;
+        }
       }
-      const el = $20(profile.selector);
-      // console.log(`for ${profile.name}: adding=${adding}`);
-      if (adding) {
-        el.addClass(className);
-      } else {
-        el.removeClass(className);
-      }
-      if (this.direction === 'left-to-right' && profile.name === clickedControlName) {
-        adding = false;
-      }
+    } else {
+      this.removeClassFromAll(className);
     }
   }
 
@@ -141,7 +184,7 @@ export abstract class CheckboxSeriesField<V extends string | number> {
    * control were clicked).
    */
   protected async setControlSelection(clickedControlName: string | null, silent?: boolean) {
-    this.setClassToControlAndImplied('checked', clickedControlName);
+    this.setClassForControlAndImpliedControls('checked', clickedControlName);
     await this.setAttributeValue(`${this.getValueForControl(clickedControlName)}`, silent);
     this.displayedSelectionControlName = clickedControlName;
   }
