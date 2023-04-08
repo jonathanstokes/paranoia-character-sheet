@@ -6,8 +6,9 @@ import {addSlashes} from "slashes";
 import * as dotenv from 'dotenv';
 
 dotenv.config();
-const email = process.env.ROLL20_EMAIL as string;
-const password = process.env.ROLL20_PASSWORD as string;
+const roll20Email = process.env.ROLL20_EMAIL as string;
+const roll20Password = process.env.ROLL20_PASSWORD as string;
+const roll20CampaignId = process.env.ROLL20_CAMPAIGN_ID as string;
 const useCreateAccountPageBypass = false;
 
 const pause = async (milliseconds: number) => {
@@ -73,9 +74,9 @@ const deploy = async (campaignId: string, layoutHtml: string, styleCss: string) 
 
     log("Logging in.");
     await page.waitForSelector('form.login input[name="email"]');
-    await page.type('form.login input[name="email"]', email, {delay: 30});
+    await page.type('form.login input[name="email"]', roll20Email, {delay: 30});
     await pause(200);
-    await page.type('form.login input[name="password"]', password, {delay: 30});
+    await page.type('form.login input[name="password"]', roll20Password, {delay: 30});
     await pause(200);
     await page.click('button[id*="login"]');
     // A waitForNavigation() here is problemmatic because the /welcome page shown post-login often gets hung up loading
@@ -129,7 +130,7 @@ const load = async () => {
 };
 
 load().then(({layoutHtml, styleCss}) => {
-  deploy('14640502', layoutHtml, styleCss).catch(err => {
+  deploy(roll20CampaignId, layoutHtml, styleCss).catch(err => {
     console.error(err);
     pause(200000).then(() => {
       process.exit(1);
