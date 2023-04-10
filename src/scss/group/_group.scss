@@ -1,4 +1,4 @@
-@import "../common/_colors";
+@import "../common/colors";
 
 $group-border-color: $field-border-color;
 $header-text-color: $neutral-text-color;
@@ -20,9 +20,9 @@ $header-background-color: $neutral-light-background-color;
     font-weight: bold;
 
     .sheet-chevron {
-      font-size: 1.5rem;
-      bottom: -0.0625rem;
+      font-size: 1.875rem;
       margin-left: 0.5rem;
+      line-height: 1.5rem;
     }
   }
 

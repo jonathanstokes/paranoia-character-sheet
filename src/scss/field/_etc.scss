@@ -1,0 +1,19 @@
+@import "../common/colors";
+
+.sheet-part-body {
+  .sheet-field-container {
+
+    .sheet-field {
+      background-color: $light-background-color;
+
+      &.sheet-field-freeform-text-line {
+        background-color: $light-background-color;
+      }
+    }
+
+    .sheet-field-xp-points {
+      width: 10rem;
+      max-width: 20rem;
+    }
+  }
+}

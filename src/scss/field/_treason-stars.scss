@@ -1,19 +1,24 @@
-@import "../common/_colors";
+@import "../common/colors";
 
+$star-container-border-color: $field-border-color;
 $star-outline-color: $field-border-color;
 $star-checked-color: $dark-primary-text-color;
 $star-hovered-color: $alternative-dark-primary-text-color;
 $star-hovered-shadow-color: $star-outline-color;
 
 .sheet-treason-stars-container {
+  display: flex;
+  flex-wrap: nowrap;
+  border: 0.1875rem solid $star-container-border-color;
+  padding: 0 0.75rem 0.5rem;
 
   button.sheet-field-treason-star {
     border: 0;
     background-color: transparent;
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     line-height: 1;
     color: $star-outline-color;
-    padding: 0;
+    padding: 0.25rem 0 0 0;
   }
 
   button.sheet-field-treason-star::before {

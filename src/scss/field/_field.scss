@@ -1,4 +1,4 @@
-@import "../common/_colors";
+@import "../common/colors";
 
 $title-text-color: $dark-primary-text-color;
 
@@ -45,7 +45,7 @@ input.sheet-field[type=text] {
 }
 
 input.sheet-field[type=number] {
-  max-width: 3.25rem;
+  max-width: 3.5rem;
   text-align: center;
 }
 
@@ -56,11 +56,13 @@ input.sheet-field[type=number] {
 }
 
 input.sheet-field[name=attr_sector] {
-  max-width: 3.5rem;
-  min-width: 3.5rem;
+  max-width: 4.5rem;
+  min-width: 4.5rem;
 }
 
 .sheet-field[name=attr_cloneCount] {
+  max-width: 4rem;
+  min-width: 4rem;
 }
 
 .sheet-field-container:has(.sheet-field[name=attr_gender]) {
