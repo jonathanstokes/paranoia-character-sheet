@@ -3,6 +3,7 @@ import {TreasonStarsField} from "./field/TreasonStarsField.js";
 import {MoxieField} from "./field/MoxieField.js";
 import {workerScope} from "./util/util.js";
 import {WoundsField} from "./field/WoundsField.js";
+import {CharacterName} from "./other/CharacterName.js";
 
 
 on('sheet:opened', () => {
@@ -11,6 +12,7 @@ on('sheet:opened', () => {
   TreasonStarsField.init();
   MoxieField.init();
   WoundsField.init();
+  CharacterName.init();
   console.log("Paranoia character sheet initialized.");
 });
 
