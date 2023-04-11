@@ -4,12 +4,14 @@ import {MoxieField} from "./field/MoxieField.js";
 import {workerScope} from "./util/util.js";
 import {WoundsField} from "./field/WoundsField.js";
 import {CharacterName} from "./other/CharacterName.js";
+import {ModifierNumberField} from "./field/ModifierNumberField.js";
 
 
 on('sheet:opened', () => {
   console.log("Paranoia character sheet initializing.");
   ClearanceField.init();
   TreasonStarsField.init();
+  ModifierNumberField.init();
   MoxieField.init();
   WoundsField.init();
   CharacterName.init();

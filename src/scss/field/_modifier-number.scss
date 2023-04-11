@@ -1,0 +1,41 @@
+@import "../common/colors";
+
+// The editor gets a little wider, to the left, than the display component.
+$editor-left-extension: 0.5rem;
+
+.sheet-field-modifier-number-container {
+  position: relative;
+  max-width: 4rem;
+
+  input.sheet-field-modifier-number-display {
+    width: calc(100% - $editor-left-extension);
+    box-sizing: border-box;
+    background-color: $light-background-color;
+    border: 0.1875rem solid $field-border-color;
+    border-radius: 0;
+    margin: 0 0 0 $editor-left-extension;
+    text-align: center;
+    opacity: 1;
+    transition: opacity 0.5s linear;
+  }
+
+  input.sheet-field-modifier-number {
+    box-sizing: border-box;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 100%;
+    border: 0.1875rem solid $field-border-color;
+  }
+
+  &.editing {
+    input.sheet-field-modifier-number-display {
+      opacity: 0;
+    }
+    input.sheet-field-modifier-number {
+      visibility: visible;
+    }
+  }
+}

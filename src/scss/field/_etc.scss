@@ -1,12 +1,12 @@
 @import "../common/colors";
 
-.sheet-part-body {
-  .sheet-field-container {
+.sheet-main {
+  .sheet-part-body {
 
     .sheet-field {
       background-color: $light-background-color;
 
-      &.sheet-field-freeform-text-line {
+      &input.sheet-field-freeform-text-line {
         background-color: $light-background-color;
       }
     }

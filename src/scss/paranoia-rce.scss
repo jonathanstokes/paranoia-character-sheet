@@ -2,6 +2,7 @@
 
 @import "./group/group";
 @import "./field/field";
+@import "./field/modifier-number";
 @import "./field/treason-stars";
 @import "./field/moxie-circles";
 @import "./field/wound-boxes";
@@ -223,9 +224,9 @@
 
 .sheet-field-container-skill {
     justify-content: space-between;
-    gap: 0.5rem;
+    gap: 0;
+    margin-right: 0;
 }
-
 
 .sheet-memory-row {
     display: flex;
