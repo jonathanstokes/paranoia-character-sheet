@@ -1,18 +1,69 @@
 @import "../common/colors";
+@import "../common/fonts";
 
 .sheet-rolltemplate-skill {
 
 
   .sheet-template-container {
+    color: $dark-primary-text-color;
+    background-color: $light-background-color;
     border: 0.1875rem solid $field-border-color;
+    cursor: default;
+
+    .sheet-template-header {
+      background-color: $neutral-dark-background-color;
+      color: $dark-primary-text-color;
+      padding: 0.5rem;
+      border-bottom: 0.0625rem solid $field-border-color;
+      line-height: 1.2;
+      font-family: $field-title-font-family;
+      font-size: 1.75rem;
+      text-transform: uppercase;
+    }
+
+    .sheet-template-row {
+      display: flex;
+      justify-content: center;
+      padding: 2rem 1rem;
+
+      .sheet-roll-result {
+        font-family: $header-title-font-family;
+        font-size: 1.75rem;
+        display: flex;
+        align-items: flex-start;
+
+        // A built-in Roll20 class
+        .inlinerollresult {
+          font-family: $user-input-font-family;
+        }
+
+        .sheet-roll-result-number {
+          position: relative;
+          background-color: $neutral-light-background-color;
+          width: 4rem;
+          margin: 0.25rem 0.5rem;
+          top: -1rem;
+
+          .inlinerollresult {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            box-sizing: border-box;
+            background-color: $neutral-light-background-color;
+            text-align: center;
+            padding: 0.5rem 0;
+
+            pointer-events: none;
+            &:first-of-type {
+              // When stacking two Roll20 roll results on top of each other, we want the 2nd one to show (on top), but
+              // the bottom one's tool-tip to show.
+              pointer-events: inherit;
+            }
+          }
+        }
+      }
+    }
   }
 
-  .sheet-template-header {
-    background-color: $dark-background-color;
-    color: $light-primary-text-color;
-    padding: 0.5rem;
-    border-bottom: 0.0625rem solid $field-border-color;
-    line-height: 1.2;
-    font-size: 2.5rem;
-  }
 }

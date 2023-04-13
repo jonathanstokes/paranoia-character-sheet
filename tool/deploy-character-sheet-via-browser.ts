@@ -49,13 +49,13 @@ const deploy = async (campaignId: string, layoutHtml: string, styleCss: string) 
     if (useCreateAccountPageBypass) {
       // The /login page has Cloudflare bot detection, but the /create-account page doesn't. <shrug>.  If we go to the
       // /create-account first and click the login button from there, we don't get bot detection.
-      await page.goto(`https://app.roll20.net/create-account`);
+      await page.goto(`https://app.roll20.net/create-account`, {waitUntil: 'domcontentloaded'});
       await page.waitForSelector('button[id*="login"]')
       await page.click('button[id*="login"]');
       await page.waitForNavigation();
     } else {
       log("Opening login page.");
-      await page.goto(`https://app.roll20.net/`, {timeout: 45050});
+      await page.goto(`https://app.roll20.net/`, {timeout: 45050, waitUntil: 'domcontentloaded'});
       try {
         await page.waitForSelector('form.login input[name="email"]', {timeout: 9500});
       } catch (timedout) {
@@ -132,9 +132,7 @@ const load = async () => {
 load().then(({layoutHtml, styleCss}) => {
   deploy(roll20CampaignId, layoutHtml, styleCss).catch(err => {
     console.error(err);
-    pause(200000).then(() => {
-      process.exit(1);
-    })
+    process.exit(1);
   });
 }).catch(err => {
   console.error(err);

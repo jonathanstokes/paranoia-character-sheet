@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import * as _ from 'lodash';
 
 const compileHtml = async () => {
   const baseDir = './src/html';
@@ -33,7 +34,7 @@ const compile = async () => {
   await Promise.all([compileHtml(), compileCss()]);
 }
 
-const SERVER_SIDE_INCLUDE_MATCHER = /<!--#include\s+file\s*=\s*("([^"]+)"|'([^"]+)')\s*-->/;
+const SERVER_SIDE_INCLUDE_MATCHER = /<!--#include\s+file\s*=\s*("([^"]+)"|'([^']+)')\s*(template-data\s*=\s*("([^"]+)"|'([^']+)'))?\s*-->/;
 
 const loadIncludedHtml = async (baseDirectory: string, includeFile: string): Promise<string> => {
   const filePath = path.resolve(baseDirectory, includeFile);
@@ -50,8 +51,13 @@ const processHtmlIncludes = async (baseDirectory: string, html: string): Promise
     match = SERVER_SIDE_INCLUDE_MATCHER.exec(outputHtml);
     if (match) {
       const includeTag = match[0];
-      const includeFile = match[2];
-      const includedHtml = await loadIncludedHtml(baseDirectory, includeFile);
+      const includeFile = match[2] || match[3];
+      const templateDataString = match[6] || match[7];
+      let includedHtml = await loadIncludedHtml(baseDirectory, includeFile);
+      if (templateDataString) {
+        const templateData = JSON.parse(templateDataString);
+        includedHtml = _.template(includedHtml)(templateData);
+      }
       outputHtml = outputHtml.replace(includeTag, includedHtml);
     }
   } while (match);
