@@ -1,4 +1,5 @@
 @import "../common/colors";
+@import "../common/fonts";
 
 $title-text-color: $dark-primary-text-color;
 
@@ -10,7 +11,7 @@ $title-text-color: $dark-primary-text-color;
   flex: 1;
 
   .sheet-field-title {
-    font-family: "Andale Mono", AndaleMono, monospace;
+    font-family: $field-title-font-family;
     font-size: 1.5rem;
     color: $title-text-color;
     white-space: nowrap;
@@ -20,7 +21,7 @@ $title-text-color: $dark-primary-text-color;
 
 .sheet-field {
   box-sizing: border-box;
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-family: $user-input-font-family;
   border-radius: 0;
 }
 
@@ -93,3 +94,62 @@ input.sheet-field.sheet-field-freeform-text-line {
   border-width: 0 0 0.1875rem 0;
 }
 
+.sheet-field-container-skill {
+  position: relative;
+
+  .sheet-skill-roll-button {
+    border: 0;
+    padding: 0;
+    text-transform: uppercase;
+    background-color: transparent;
+
+    &:hover {
+      text-shadow: 0 0 0.125rem rgba($dark-primary-text-color, 50%);
+    }
+  }
+
+  .sheet-skill-roll-menu {
+    position: absolute;
+    top: 2.875rem;
+    left: 0;
+    width: calc(100% - 0.5rem);
+    background-color: $light-background-color;
+    border: 0.125rem solid $field-border-color;
+    box-shadow: 0.1875rem 0.1875rem 0.5rem $field-border-color;
+    z-index: 1;
+
+    &.sheet-hidden {
+      display: none;
+    }
+
+    .sheet-skill-roll-menu-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      text-transform: none;
+
+
+      .sheet-skill-roll-menu-header-text {
+        span {
+          white-space: nowrap;
+        }
+      }
+
+      .sheet-skill-roll-menu-header-close-button {
+        border: 0;
+        background-color: transparent;
+      }
+    }
+
+    .sheet-skill-roll-menu-stat-container {
+      padding-left: 1rem;
+
+      .sheet-skill-roll-button {
+
+        &.sheet-skill-roll-default-button {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

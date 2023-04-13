@@ -1,0 +1,38 @@
+<rolltemplate class="sheet-rolltemplate-skill">
+    <div class="sheet-template-container">
+        <div class="sheet-template-header"> {{stat_label}} + {{skill_label}} </div>
+
+        <div class="sheet-template-row">
+            {{#rollLess() node_roll -1}}
+            <div class="sheet-failure">
+                {{computed::failure_count}} failures
+            </div>
+            {{/rollLess() node_roll -1}}
+            {{#rollTotal() node_roll -1}}
+            <div class="sheet-failure">
+                1 failure
+            </div>
+            {{/rollTotal() node_roll -1}}
+            {{#rollTotal() node_roll 0}}
+            <div class="sheet-failure">
+                No successes ({{node_roll}})
+            </div>
+            {{/rollTotal() node_roll 0}}
+            {{#rollTotal() node_roll 1}}
+            <div class="sheet-success">
+                {{node_roll}} success!
+            </div>
+            {{/rollTotal() node_roll 1}}
+            {{#rollGreater() node_roll 1}}
+            <div class="sheet-success">
+                {{node_roll}} successes
+            </div>
+            {{/rollGreater() node_roll 1}}
+        </div>
+        <div class="sheet-template-row">
+            {{#rollGreater() computed::computer_die 0}}
+            <span style="color: red">with help from Friend Computer!</span>
+            {{/rollGreater() computed::computer_die 0}}
+        </div>
+    </div>
+</rolltemplate>

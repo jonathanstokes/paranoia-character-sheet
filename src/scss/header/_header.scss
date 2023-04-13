@@ -1,0 +1,46 @@
+@import "../common/colors";
+@import "../common/fonts";
+
+.sheet-mandatory-title {
+  font-family: $header-subtitle-font-family;
+  color: $header-mandatory-text-color;
+  font-size: 1.5rem;
+  height: 2.5rem;
+  margin: 1.25rem 0 0 -0.5rem;
+  transform: scale(.98, 1.5);
+}
+
+.sheet-form-title-text-container {
+  .sheet-title-alpha {
+    font-family: $header-title-font-family;
+    font-size: 4.5rem;
+    line-height: 1.1;
+  }
+
+  .sheet-title-complex {
+    font-family: $header-title-font-family;
+    font-size: 2.875rem;
+    letter-spacing: 0.25rem;
+    line-height: 0.9;
+  }
+
+  .sheet-title-identity {
+    font-family: $header-subtitle-font-family;
+    font-size: 2rem;
+    font-weight: 300;
+    color: $light-primary-text-color;
+    line-height: 1.5;
+    height: 4rem;
+    transform: scale(.95, 1);
+  }
+
+  .sheet-title-form {
+    font-family: $header-subtitle-font-family;
+    font-size: 4rem;
+    font-weight: 500;
+    line-height: 70%;
+    height: 3.15rem;
+    color: $light-primary-text-color;
+    transform: scale(1, 1.5);
+  }
+}

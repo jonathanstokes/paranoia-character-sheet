@@ -1,0 +1,18 @@
+@import "../common/colors";
+
+.sheet-rolltemplate-skill {
+
+
+  .sheet-template-container {
+    border: 0.1875rem solid $field-border-color;
+  }
+
+  .sheet-template-header {
+    background-color: $dark-background-color;
+    color: $light-primary-text-color;
+    padding: 0.5rem;
+    border-bottom: 0.0625rem solid $field-border-color;
+    line-height: 1.2;
+    font-size: 2.5rem;
+  }
+}

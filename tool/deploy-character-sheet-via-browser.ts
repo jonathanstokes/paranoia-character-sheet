@@ -79,24 +79,24 @@ const deploy = async (campaignId: string, layoutHtml: string, styleCss: string) 
     await page.type('form.login input[name="password"]', roll20Password, {delay: 30});
     await pause(200);
     await page.click('button[id*="login"]');
-    // A waitForNavigation() here is problemmatic because the /welcome page shown post-login often gets hung up loading
+    // A waitForNavigation() here is problematic because the /welcome page shown post-login often gets hung up loading
     // scripts and such.  If the 'Contact Us' link at the bottom of the page has rendered, then that's good enough for
     // our purposes, since we're just going to navigate elsewhere. This link doesn't exist on the app.roll20.net page,
     // or the /login or /create-account pages (fyi it does exist on the roll20.net home page).
-    await page.waitForSelector('a[href="https://roll20.zendesk.com/hc/en-us/requests/new"]');
+    await page.waitForSelector('a[href="https://roll20.zendesk.com/hc/en-us/requests/new"]', { timeout: 30003 });
 
     log("Opening campaign settings.");
-    await page.goto(`https://app.roll20.net/campaigns/campaignsettings/${campaignId}`);
+    await page.goto(`https://app.roll20.net/campaigns/campaignsettings/${campaignId}`, {timeout: 30001, waitUntil: 'domcontentloaded'});
 
     const setEditorText = async (editorHostElementSelector: string, text: string) => {
       console.log("***** waiting for ACE content");
       // Wait for the editor to be fully rendered.
-      await page.waitForSelector(`${editorHostElementSelector} .ace_content`);
+      await page.waitForSelector(`${editorHostElementSelector} .ace_content`, {timeout: 30002});
       console.log("***** setting ACE content");
       // Set our value into the editor with Javascript.
       await page.evaluate(`
       document.querySelector("${addSlashes(editorHostElementSelector)}").env.editor.setValue("${addSlashes(text)}", 1);
-    `);
+      `);
       console.log("***** done setting ACE content");
     };
 

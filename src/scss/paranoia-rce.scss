@@ -1,12 +1,15 @@
 @charset "UTF-8";
 
-@import "./group/group";
 @import "./field/field";
 @import "./field/modifier-number";
 @import "./field/treason-stars";
 @import "./field/moxie-circles";
 @import "./field/wound-boxes";
 @import "./field/etc";
+@import "./group/group";
+@import "./header/header";
+@import "./roll-template/skill-roll-template";
+
 
 .sheet-main {
     text-transform: uppercase;
@@ -67,48 +70,6 @@
     font-size: 4rem;
 }
 
-.sheet-title-alpha {
-    font-family: "Arial Black", "Arial Bold", "Arial", Gadget, sans-serif;
-    font-size: 4.5rem;
-    line-height: 1.1;
-}
-
-.sheet-title-complex {
-    font-family: "Arial Black", "Arial Bold", "Arial", Gadget, sans-serif;
-    font-size: 2.875rem;
-    letter-spacing: 0.25rem;
-    line-height: 0.9;
-}
-
-.sheet-title-identity {
-    font-family: Verdana, Geneva, sans-serif;
-    font-size: 2rem;
-    font-weight: 300;
-    color: white;
-    line-height: 1.5;
-    height: 4rem;
-    transform: scale(.95, 1);
-}
-
-.sheet-title-form {
-    font-family: Verdana, Geneva, sans-serif;
-    font-size: 4rem;
-    font-weight: 500;
-    line-height: 70%;
-    height: 3.15rem;
-    color: white;
-    transform: scale(1, 1.5);
-}
-
-.sheet-mandatory-title {
-    font-family: Verdana, Geneva, sans-serif;
-    color: rgb(189, 68, 56);
-    font-size: 1.5rem;
-    height: 2.5rem;
-    margin: 1.25rem 0 0 -0.5rem;
-    transform: scale(.98, 1.5);
-}
-
 .sheet-space-letters-to-full-width {
     text-align: justify;
 }
@@ -137,27 +98,9 @@
     font-size: 1.25rem;
 }
 
-.sheet-part-number {
-    font-family: "Arial", Gadget, sans-serif;
-    color: white;
-    background-color: #28394F;
-    flex: 1;
-    padding: 0.5rem 1rem;
-    font-size: 0.875rem;
-    font-weight: normal;
-}
-
 .sheet-part-number, .sheet-part-title {
     display: flex;
     align-items: center;
-}
-
-.sheet-part-title {
-    font-family: "Arial Black", "Arial Bold", "Arial", Gadget, sans-serif;
-    color: #28394F;
-    background-color: rgb(131, 174, 207);;
-    flex: 6;
-    padding: 0.5rem 1rem;
 }
 
 .sheet-chevron {

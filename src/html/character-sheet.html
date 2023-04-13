@@ -1,41 +1,5 @@
 <div class="sheet-main">
-    <div class="sheet-header">
-        <div class="sheet-header-top">
-            <div class="sheet-form-title">
-                <div class="sheet-form-title-image-outer-container">
-                    <div class="sheet-spacer-bar"></div>
-                    <div class="sheet-form-title-image-container">
-                        <img class="sheet-eye-logo"
-                             src="https://raw.githubusercontent.com/jonathanstokes/paranoia-character-sheet/main/image/blue-eye-logo.png"/>
-                    </div>
-                </div>
-                <div class="sheet-form-title-outer-text-container">
-                    <div class="sheet-red-bar"></div>
-                    <div class="sheet-form-title-text-container">
-                        <div class="sheet-title sheet-title-alpha sheet-color-dark-blue">Alpha</div>
-                        <div class="sheet-title sheet-title-complex sheet-color-dark-blue">Complex</div>
-                        <div class="sheet-title sheet-title-identity sheet-space-letters-to-full-width">
-                            I d e n t i t y
-                            <span class="sheet-space-letters-to-full-width-helper"> </span>
-                        </div>
-                        <div class="sheet-title sheet-title-form sheet-space-letters-to-full-width">
-                            F o r m
-                            <span class="sheet-space-letters-to-full-width-helper"> </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="sheet-picture">
-                <img name="attr_character_avatar"/>
-            </div>
-        </div>
-        <div class="sheet-header-bottom">
-            <div class="sheet-mandatory-title sheet-space-letters-to-full-width">
-                ▶ T h i s &nbsp; f o r m &nbsp; i s &nbsp; m a n d a t o r y
-                <span class="sheet-space-letters-to-full-width-helper"> </span>
-            </div>
-        </div>
-    </div>
+    <!--#include file="include/header.html"-->
     <div class="sheet-content">
         <div class="sheet-part">
             <div class="sheet-part-header">
@@ -145,134 +109,7 @@
                 <div class="sheet-part-title"><span class="sheet-text">Skills <span
                         class="sheet-chevron">›››</span></span></div>
             </div>
-            <div class="sheet-part-body sheet-part-body-skill">
-                <div class="sheet-part-body-row">
-                    <div class="sheet-part-body-column">
-                        <div class="sheet-field-container sheet-field-container-skill">
-                            <div class="sheet-field-title">Athletics</div>
-                            <div class="sheet-field sheet-field-modifier-number-container" name="athletics_skill_container">
-                                <input class="sheet-field-modifier-number-display" type="text" name="attr_athletics_skill_display"/>
-                                <input class="sheet-field sheet-field-modifier-number sheet-field-skill" type="number" name="attr_athletics_skill"/>
-                            </div>
-                        </div>
-                        <div class="sheet-field-container sheet-field-container-skill">
-                            <div class="sheet-field-title">Guns</div>
-                            <div class="sheet-field sheet-field-modifier-number-container" name="guns_skill_container">
-                                <input class="sheet-field-modifier-number-display" type="text" name="attr_guns_skill_display"/>
-                                <input class="sheet-field sheet-field-modifier-number sheet-field-skill" type="number" name="attr_guns_skill"/>
-                            </div>
-                        </div>
-                        <div class="sheet-field-container sheet-field-container-skill">
-                            <div class="sheet-field-title">Melee</div>
-                            <div class="sheet-field sheet-field-modifier-number-container" name="melee_skill_container">
-                                <input class="sheet-field-modifier-number-display" type="text" name="attr_melee_skill_display"/>
-                                <input class="sheet-field sheet-field-modifier-number sheet-field-skill" type="number" name="attr_melee_skill"/>
-                            </div>
-                        </div>
-                        <div class="sheet-field-container sheet-field-container-skill">
-                            <div class="sheet-field-title">Throw</div>
-                            <div class="sheet-field sheet-field-modifier-number-container" name="throw_skill_container">
-                                <input class="sheet-field-modifier-number-display" type="text" name="attr_throw_skill_display"/>
-                                <input class="sheet-field sheet-field-modifier-number sheet-field-skill" type="number" name="attr_throw_skill"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sheet-part-body-column">
-                        <div class="sheet-field-container sheet-field-container-skill">
-                            <div class="sheet-field-title">Science</div>
-                            <div class="sheet-field sheet-field-modifier-number-container" name="science_skill_container">
-                                <input class="sheet-field-modifier-number-display" type="text" name="attr_science_skill_display"/>
-                                <input class="sheet-field sheet-field-modifier-number sheet-field-skill" type="number" name="attr_science_skill"/>
-                            </div>
-                        </div>
-                        <div class="sheet-field-container sheet-field-container-skill">
-                            <div class="sheet-field-title">Psychology</div>
-                            <div class="sheet-field sheet-field-modifier-number-container" name="psychology_skill_container">
-                                <input class="sheet-field-modifier-number-display" type="text" name="attr_psychology_skill_display"/>
-                                <input class="sheet-field sheet-field-modifier-number sheet-field-skill" type="number" name="attr_psychology_skill"/>
-                            </div>
-                        </div>
-                        <div class="sheet-field-container sheet-field-container-skill">
-                            <div class="sheet-field-title">Bureaucracy</div>
-                            <div class="sheet-field sheet-field-modifier-number-container" name="bureaucracy_skill_container">
-                                <input class="sheet-field-modifier-number-display" type="text" name="attr_bureaucracy_skill_display"/>
-                                <input class="sheet-field sheet-field-modifier-number sheet-field-skill" type="number" name="attr_bureaucracy_skill"/>
-                            </div>
-                        </div>
-                        <div class="sheet-field-container sheet-field-container-skill">
-                            <div class="sheet-field-title">Alpha Complex</div>
-                            <div class="sheet-field sheet-field-modifier-number-container" name="alpha_complex_skill_container">
-                                <input class="sheet-field-modifier-number-display" type="text" name="attr_alpha_complex_skill_display"/>
-                                <input class="sheet-field sheet-field-modifier-number sheet-field-skill" type="number" name="attr_alpha_complex_skill"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sheet-part-body-column">
-                        <div class="sheet-field-container sheet-field-container-skill">
-                            <div class="sheet-field-title">Bluff</div>
-                            <div class="sheet-field sheet-field-modifier-number-container" name="bluff_skill_container">
-                                <input class="sheet-field-modifier-number-display" type="text" name="attr_bluff_skill_display"/>
-                                <input class="sheet-field sheet-field-modifier-number sheet-field-skill" type="number" name="attr_bluff_skill"/>
-                            </div>
-                        </div>
-                        <div class="sheet-field-container sheet-field-container-skill">
-                            <div class="sheet-field-title">Charm</div>
-                            <div class="sheet-field sheet-field-modifier-number-container" name="charm_skill_container">
-                                <input class="sheet-field-modifier-number-display" type="text" name="attr_charm_skill_display"/>
-                                <input class="sheet-field sheet-field-modifier-number sheet-field-skill" type="number" name="attr_charm_skill"/>
-                            </div>
-                        </div>
-                        <div class="sheet-field-container sheet-field-container-skill">
-                            <div class="sheet-field-title">Intimidate</div>
-                            <div class="sheet-field sheet-field-modifier-number-container" name="intimidate_skill_container">
-                                <input class="sheet-field-modifier-number-display" type="text" name="attr_intimidate_skill_display"/>
-                                <input class="sheet-field sheet-field-modifier-number sheet-field-skill" type="number" name="attr_intimidate_skill"/>
-                            </div>
-                        </div>
-                        <div class="sheet-field-container sheet-field-container-skill">
-                            <div class="sheet-field-title">Stealth</div>
-                            <div class="sheet-field sheet-field-modifier-number-container" name="stealth_skill_container">
-                                <input class="sheet-field-modifier-number-display" type="text" name="attr_stealth_skill_display"/>
-                                <input class="sheet-field sheet-field-modifier-number sheet-field-skill" type="number" name="attr_stealth_skill"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="sheet-part-body-column">
-                        <div class="sheet-field-container sheet-field-container-skill">
-                            <div class="sheet-field-title">Operate</div>
-                            <div class="sheet-field sheet-field-modifier-number-container" name="operate_skill_container">
-                                <input class="sheet-field-modifier-number-display" type="text" name="attr_operate_skill_display"/>
-                                <input class="sheet-field sheet-field-modifier-number sheet-field-skill" type="number" name="attr_operate_skill"/>
-                            </div>
-                        </div>
-                        <div class="sheet-field-container sheet-field-container-skill">
-                            <div class="sheet-field-title">Engineer</div>
-                            <div class="sheet-field sheet-field-modifier-number-container" name="engineer_skill_container">
-                                <input class="sheet-field-modifier-number-display" type="text" name="attr_engineer_skill_display"/>
-                                <input class="sheet-field sheet-field-modifier-number sheet-field-skill" type="number" name="attr_engineer_skill"/>
-                            </div>
-                        </div>
-                        <div class="sheet-field-container sheet-field-container-skill">
-                            <div class="sheet-field-title">Program</div>
-                            <div class="sheet-field sheet-field-modifier-number-container" name="program_skill_container">
-                                <input class="sheet-field-modifier-number-display" type="text" name="attr_program_skill_display"/>
-                                <input class="sheet-field sheet-field-modifier-number sheet-field-skill" type="number" name="attr_program_skill"/>
-                            </div>
-                        </div>
-                        <div class="sheet-field-container sheet-field-container-skill">
-                            <div class="sheet-field-title">Demolitions</div>
-                            <div class="sheet-field sheet-field-modifier-number-container" name="demolitions_skill_container">
-                                <input class="sheet-field-modifier-number-display" type="text" name="attr_demolitions_skill_display"/>
-                                <input class="sheet-field sheet-field-modifier-number sheet-field-skill" type="number" name="attr_demolitions_skill"/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <input class="sheet-field sheet-field-additionalSkills sheet-field-freeform-text-line" type="text"
-                       name="attr_additional_skills_1"/>
-                <input class="sheet-field sheet-field-additionalSkills sheet-field-freeform-text-line" type="text"
-                       name="attr_additional_skills_2"/>
-            </div>
+            <!--#include file="include/skills.html"-->
         </div>
         <div class="sheet-part">
             <div class="sheet-part-header">
@@ -405,4 +242,5 @@
             </div>
         </div>
     </div>
+    <!--#include file="include/skill-roll-template.html"-->
 </div>

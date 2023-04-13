@@ -1,7 +1,23 @@
 export {};
 
 declare global {
-  interface EventInfo {
+  interface BaseEvent {
+    /**
+     * This will include all html attributes of the element that triggered the event, as well as the name of the tag
+     * itself
+     */
+    htmlAttributes: {
+      name: string;
+      class: string;
+      id: string;
+      tagName: string;
+      /** Attributes such as `data-tab`. */
+      [dataAttribute: `type DataAttribute = data-${string}`]: string; // this is almost cool, but doesn't work.
+    };
+  }
+
+  /** At least "action" events will include the `htmlAttributes` of the button that triggered the action. */
+  interface EventInfo extends Partial<BaseEvent> {
     /**
      * The original attribute that triggered the event. It is the full name (including `RowID` if in a repeating section)
      * of the attribute that originally triggered this event.
@@ -45,19 +61,7 @@ declare global {
    */
   type JQueryProxyEventName = 'change' | 'click' | 'hover' | 'mouseenter' | 'mouseleave';
 
-  interface JQueryProxyEvent {
-    /**
-     * This will include all html attributes of the element that triggered the event, as well as the name of the tag
-     * itself
-     */
-    htmlAttributes: {
-      name: string;
-      class: string;
-      id: string;
-      tagName: string;
-      /** Attributes such as `data-tab`. */
-      [dataAttribute: `type DataAttribute = data-${string}`]: string;
-    };
+  interface JQueryProxyEvent extends BaseEvent {
     /** Whether alt, shift or ctrl keys were down when the event was triggered */
     altKey: boolean;
     /** Whether alt, shift or ctrl keys were down when the event was triggered */
@@ -92,7 +96,7 @@ declare global {
   type ValuesResult = {[attributeName: string]: string};
   type ValuesCallback = (values: ValuesResult) => void;
 
-  function on(eventName: string, callbackFn: (eventInfo: EventInfo) => void);
+  function on(eventName: string, callbackFn: (eventInfo: EventInfo) => void | Promise<void>);
 
   function getAttrs(attributeNames: string[], callbackFn: ValuesCallback);
   function setAttrs(attributeMap: {[attributeName: string]: string | number}, options?: { silent: boolean }, callbackFn?: ValuesCallback);
@@ -104,4 +108,33 @@ declare global {
   function getSectionIDs(section_name: string,callbackFn: (idArray: string[]) => void);
 
   let self;
+
+  interface RollResult {
+    /** The result of the roll, as calculated by the roll server, e.g. 48. */
+    result: number;
+    /** An ordered array of the results of all dice in this roll, e.g. [9,9,20,4,4,1]. */
+    dice: number[];
+    /** The original expression for this roll, e.g. ‘'4d20+2d4'’. */
+    expression: string;
+    /** A breakdown of each “sub-roll” (each part of an expression is rolled separately). */
+    rolls: {
+      /** The ‘4’ in ‘4d20’ */
+      dice: number;
+      /** The ‘20’ in ‘4d20’ */
+      sides: number;
+      /** Array of the results of each die, e.g. [9,9,20,4]. */
+      results: number;
+    }[];
+  }
+
+  interface RollsResult {
+    rollId: string;
+    results: {
+      [rollName: string]: RollResult
+    }
+  }
+
+  function startRoll(rollTemplateString: string, callbackFn?: (info: RollsResult) => void): Promise<RollsResult>;
+
+  function finishRoll(rollId: string, computedResults?: {[rollName: string]: number});
 }

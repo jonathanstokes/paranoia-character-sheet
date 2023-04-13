@@ -1,4 +1,5 @@
 @import "../common/colors";
+@import "../common/fonts";
 
 $circle-color: $field-border-color;
 $slash-color: $dark-primary-text-color;
@@ -14,12 +15,12 @@ $slash-hovered-color: $alternative-dark-primary-text-color;
 
     .sheet-circle {
       font-size: 2.5rem;
-      font-family: monospace;
+      font-family: $stars-font-family;
       color: $circle-color;
     }
 
     .sheet-slash {
-      font-family: "Comic Sans MS", "Comic Sans", cursive;
+      font-family: $user-input-font-family;
       font-size: 3.25rem;
       position: absolute;
       bottom: 10%;

@@ -1,8 +1,11 @@
 import fs from 'fs';
+import path from 'path';
 
 const compileHtml = async () => {
-  const characterSheetHtml = Bun.file('./src/html/paranoia-rce.html');
-  const html = await characterSheetHtml.text();
+  const baseDir = './src/html';
+  const characterSheetHtml = Bun.file(`${baseDir}/character-sheet.html`);
+  const rawHtml = await characterSheetHtml.text();
+  const html = await processHtmlIncludes(baseDir, rawHtml);
 
   const characterSheetCompiledScript = Bun.file('./build/js/index.js');
   const script = await characterSheetCompiledScript.text();
@@ -29,6 +32,31 @@ const compileCss = async () => {
 const compile = async () => {
   await Promise.all([compileHtml(), compileCss()]);
 }
+
+const SERVER_SIDE_INCLUDE_MATCHER = /<!--#include\s+file\s*=\s*("([^"]+)"|'([^"]+)')\s*-->/;
+
+const loadIncludedHtml = async (baseDirectory: string, includeFile: string): Promise<string> => {
+  const filePath = path.resolve(baseDirectory, includeFile);
+  const loadedFile = Bun.file(filePath);
+  const html = await loadedFile.text();
+  const newBaseDirectory = path.dirname(filePath);
+  return await processHtmlIncludes(newBaseDirectory, html);
+};
+
+const processHtmlIncludes = async (baseDirectory: string, html: string): Promise<string> => {
+  let outputHtml = html;
+  let match: RegExpExecArray | null;
+  do {
+    match = SERVER_SIDE_INCLUDE_MATCHER.exec(outputHtml);
+    if (match) {
+      const includeTag = match[0];
+      const includeFile = match[2];
+      const includedHtml = await loadIncludedHtml(baseDirectory, includeFile);
+      outputHtml = outputHtml.replace(includeTag, includedHtml);
+    }
+  } while (match);
+  return outputHtml;
+};
 
 compile().catch(err => {
   console.error('Error compiling character sheets:', err);

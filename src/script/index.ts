@@ -5,6 +5,7 @@ import {workerScope} from "./util/util.js";
 import {WoundsField} from "./field/WoundsField.js";
 import {CharacterName} from "./other/CharacterName.js";
 import {ModifierNumberField} from "./field/ModifierNumberField.js";
+import {SkillRoll} from "./roll/SkillRoll.js";
 
 
 on('sheet:opened', () => {
@@ -15,6 +16,7 @@ on('sheet:opened', () => {
   MoxieField.init();
   WoundsField.init();
   CharacterName.init();
+  SkillRoll.init();
   console.log("Paranoia character sheet initialized.");
 });
 
