@@ -1,4 +1,4 @@
-import {getAttrsAsync, getSingleAttrAsync} from "../util/Roll20Async.js";
+import {getAttrsAsync, getSingleAttrAsync, setAttrsAsync} from "../util/Roll20Async.js";
 import {
   getDefaultStatIdForSkillId, getLabelForSkillId,
   getLabelForStatId, SKILL_IDS,
@@ -49,8 +49,8 @@ export class SkillRoll {
 
       const statLabel = getLabelForStatId(statId);
       const skillLabel = getLabelForSkillId(skillId);
-      const {statModifier, skillModifier} = await this.getStatAndSkillModifier(statId, skillId);
-      const node = statModifier + skillModifier;
+      const {statModifier, skillModifier, actionModifier} = await this.getStatAndSkillModifier(statId, skillId);
+      const node = statModifier + skillModifier + actionModifier;
       const negativeNode = node < 0;
 
       // 2d6>5 treats 5s and 6s as successes and counts successes.
@@ -58,23 +58,27 @@ export class SkillRoll {
       const dieRoleSuffix = negativeNode ? 'cf<4cs>5>5f<4' : 'cf<0cs>5>5';
       const statRoll = `${statModifier}d6${dieRoleSuffix}`;
       const skillRoll = `${skillModifier}d6${dieRoleSuffix}`;
+      const actionModifierRoll = actionModifier !== 0 ? `${actionModifier}d6${dieRoleSuffix}` : '';
       const computerDieRoll = `1d6${dieRoleSuffix}`;
       const unifiedNodeRoll = statModifier < 0 || skillModifier < 0 ? `${Math.abs(node)}d6${dieRoleSuffix}` : null;
 
       const rollTemplateString = [
         `&{template:skill}`,
         `{{stat_label=${statLabel}}}`,
-        `{{stat_modifier=${statModifier < 0 ? statModifier : '+' + statModifier }}}`,
+        `{{stat_modifier=${statModifier < 0 ? statModifier : '+' + statModifier}}}`,
         `{{skill_label=${skillLabel}}}`,
         `{{skill_modifier=${skillModifier < 0 ? skillModifier : '+' + skillModifier}}}`,
+        `{{raw_action_modifier=${actionModifier}}}`,
+        `{{action_modifier=${actionModifier !== 0 ? (actionModifier < 0 ? actionModifier : '+ ' + actionModifier): ''}}}`,
         // We either roll the whole NODE together if we must, or as separate stat and skill pools if we can.
-        `{{node_roll=[[${unifiedNodeRoll ? unifiedNodeRoll : statRoll + ' + ' + skillRoll} + ${computerDieRoll}]]}}`,
+        `{{node_roll=[[${unifiedNodeRoll ? unifiedNodeRoll : statRoll + ' + ' + skillRoll + (actionModifier !== 0 ? ' + ' + actionModifierRoll : '')} + ${computerDieRoll}]]}}`,
         // We want to populate two computed fields that we don't need now, but we have to include something here so we
         // can populate them later.
         // computed::computer_die is a 1|0 value indicating whether the computer die showed up 'computer'.
         `{{computer_die=[[0d6${dieRoleSuffix}]]}}`,
         // computed::failure_count is 0 or a positive number of failures.
-        `{{failure_count=[[0d6>5]]}}`
+        `{{failure_count=[[0d6>5]]}}`,
+        `{{no_success=[[0d6>5]]}}`,
       ].join(' ');
 
       const roll = await startRoll(rollTemplateString);
@@ -87,20 +91,28 @@ export class SkillRoll {
       const computedResults = {
         computer_die: wasComputerRolled,
         failure_count: nodeRollResult.result < 0 ? Math.abs(nodeRollResult.result) : 0,
-      };
+        no_success: 'No'
+      } as any;
       finishRoll(roll.rollId, computedResults);
       $20(`.sheet-skill-roll-menu[data-skill="${skillId}"]`).removeClass('sheet-loading');
       this.closeAllRollSkillMenus();
     }
   }
 
-  protected async getStatAndSkillModifier(statId: StatId, skillId: SkillId): Promise<{ statModifier: number, skillModifier: number }> {
+  protected async getStatAndSkillModifier(statId: StatId, skillId: SkillId): Promise<{ statModifier: number, skillModifier: number, actionModifier: number }> {
     const statAttributeName = `${statId}_stat`;
     const skillAttributeName = `${skillId}_skill`;
-    const values = await getAttrsAsync([statAttributeName, skillAttributeName]);
+    const actionAttributeName = `${skillId}_skill_roll_modifier`;
+    const values = await getAttrsAsync([statAttributeName, skillAttributeName, actionAttributeName]);
+    const actionModifier = +values[actionAttributeName] || 0;
+    if (actionModifier !== 0) {
+      // Always consume the action modifier by setting it back to 0.
+      await setAttrsAsync({[actionAttributeName]: 0});
+    }
     return {
       statModifier: +values[statAttributeName] || 0,
-      skillModifier: +values[skillAttributeName] || 0
+      skillModifier: +values[skillAttributeName] || 0,
+      actionModifier
     }
   }
 

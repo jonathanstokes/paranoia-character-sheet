@@ -10,7 +10,13 @@
     <div class="sheet-skill-roll-menu sheet-hidden" data-skill="${ skillId }">
         <div class="sheet-skill-roll-menu-header">
             <div class="sheet-skill-roll-menu-header-text">
-                <span>Roll ${ skillLabel }</span> <span>with stat:</span>
+                <span>Roll ${ skillLabel }</span>
+                <span>
+                    at
+                    +<input class="sheet-field sheet-field-skill-roll-modifier" type="number"
+                            name="attr_${ skillId }_skill_roll_modifier" value="0"/>
+                </span>
+                <span>with stat:</span>
             </div>
             <button type="action" name="act_close_roll_skill"
                     class="sheet-skill-roll-menu-header-close-button">✕
@@ -20,19 +26,23 @@
             <button type="action" name="act_roll_stat_and_skill"
                     class="sheet-field-title sheet-skill-roll-button"
                     data-skill="${ skillId }"
-                    data-stat="violence">Violence<span class="sheet-default-indicator" title="Violence is the default for ${ skillLabel }">*</span>
+                    data-stat="violence">Violence<span class="sheet-default-indicator"
+                                                       title="Violence is the default for ${ skillLabel }">*</span>
             </button>
             <button type="action" name="act_roll_stat_and_skill"
                     class="sheet-field-title sheet-skill-roll-button" data-skill="${ skillId }"
-                    data-stat="brains">Brains<span class="sheet-default-indicator" title="Brains is the default for ${ skillLabel }">*</span>
+                    data-stat="brains">Brains<span class="sheet-default-indicator"
+                                                   title="Brains is the default for ${ skillLabel }">*</span>
             </button>
             <button type="action" name="act_roll_stat_and_skill"
                     class="sheet-field-title sheet-skill-roll-button" data-skill="${ skillId }"
-                    data-stat="chutzpah">Chutzpah<span class="sheet-default-indicator" title="Chutzpah is the default for ${ skillLabel }">*</span>
+                    data-stat="chutzpah">Chutzpah<span class="sheet-default-indicator"
+                                                       title="Chutzpah is the default for ${ skillLabel }">*</span>
             </button>
             <button type="action" name="act_roll_stat_and_skill"
                     class="sheet-field-title sheet-skill-roll-button" data-skill="${ skillId }"
-                    data-stat="mechanics">Mechanics<span class="sheet-default-indicator" title="Mechanics is the default for ${ skillLabel }">*</span>
+                    data-stat="mechanics">Mechanics<span class="sheet-default-indicator"
+                                                         title="Mechanics is the default for ${ skillLabel }">*</span>
             </button>
         </div>
         <div class="rolling-mask">

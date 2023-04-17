@@ -1,45 +1,48 @@
 <rolltemplate class="sheet-rolltemplate-skill">
     <div class="sheet-template-container">
-        <div class="sheet-template-header"><span title="{{stat_modifier}}">{{stat_label}}</span> + <span
-                title="{{skill_modifier}}">{{skill_label}}</span>
+        <div class="sheet-template-header">
+            <span title="{{stat_modifier}}">{{stat_label}}</span>
+            +
+            <span title="{{skill_modifier}}">{{skill_label}}</span>
+            <span>{{action_modifier}}</span>
         </div>
 
         <div class="sheet-template-row">
             {{#rollLess() node_roll -1}}
-            <div class="sheet-roll-result sheet-failure">
-                <div class="sheet-roll-result-number">{{node_roll}}{{computed::failure_count}}</div>
-                failures
-            </div>
+                <div class="sheet-roll-result sheet-failure">
+                    <div class="sheet-roll-result-number">{{node_roll}}{{computed::failure_count}}</div>
+                    failures
+                </div>
             {{/rollLess() node_roll -1}}
             {{#rollTotal() node_roll -1}}
-            <div class="sheet-roll-result sheet-failure">
-                <div class="sheet-roll-result-number">{{node_roll}}{{computed::failure_count}}</div>
-                failure
-            </div>
+                <div class="sheet-roll-result sheet-failure">
+                    <div class="sheet-roll-result-number">{{node_roll}}{{computed::failure_count}}</div>
+                    failure
+                </div>
             {{/rollTotal() node_roll -1}}
             {{#rollTotal() node_roll 0}}
-            <div class="sheet-roll-result sheet-failure">
-                <div class="sheet-roll-result-number">{{node_roll}}<span class="inlinerollresult">No</span>
+                <div class="sheet-roll-result sheet-failure">
+                    <div class="sheet-roll-result-number">{{node_roll}}{{computed::no_success}}</div>
+                    successes
                 </div>
-                successes
-                {{/rollTotal() node_roll 0}}
-                {{#rollTotal() node_roll 1}}
+            {{/rollTotal() node_roll 0}}
+            {{#rollTotal() node_roll 1}}
                 <div class="sheet-roll-result sheet-success">
                     <div class="sheet-roll-result-number">{{node_roll}}</div>
                     success!
                 </div>
-                {{/rollTotal() node_roll 1}}
-                {{#rollGreater() node_roll 1}}
+            {{/rollTotal() node_roll 1}}
+            {{#rollGreater() node_roll 1}}
                 <div class="sheet-roll-result sheet-success">
                     <div class="sheet-roll-result-number">{{node_roll}}</div>
                     successes!
                 </div>
-                {{/rollGreater() node_roll 1}}
-            </div>
-            {{#rollGreater() computed::computer_die 0}}
-            <div class="sheet-template-row">
-                <span style="color: red">with help from Friend Computer!</span>
-            </div>
-            {{/rollGreater() computed::computer_die 0}}
+            {{/rollGreater() node_roll 1}}
         </div>
+        {{#rollGreater() computed::computer_die 0}}
+        <div class="sheet-template-row">
+            <span style="color: red">with help from Friend Computer!</span>
+        </div>
+        {{/rollGreater() computed::computer_die 0}}
+    </div>
 </rolltemplate>

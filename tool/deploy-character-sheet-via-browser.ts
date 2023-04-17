@@ -19,6 +19,10 @@ const log = (...message: any[]) => {
   console.log(...message);
 }
 
+const isTimeoutError = (err: Error | any) => {
+  return err?.message?.indexOf('Waiting failed') >= 0;
+}
+
 const deploy = async (campaignId: string, layoutHtml: string, styleCss: string) => {
   log("Launching browser.")
   const extra = addExtra(puppeteer);
@@ -112,7 +116,19 @@ const deploy = async (campaignId: string, layoutHtml: string, styleCss: string) 
 
     log("Saving.");
     await page.click('#save-changes-button');
-    await page.waitForXPath('//*[contains(@class,"campaign_settings")]//*[contains(@class,"alert-success") and contains(text(), "Settings saved")]');
+    const savedConfirmationXpath = '//*[contains(@class,"campaign_settings")]//*[contains(@class,"alert-success") and contains(text(), "Settings saved")]'
+    try {
+      await page.waitForXPath(savedConfirmationXpath, {timeout: 5000});
+    } catch (err) {
+      if (isTimeoutError(err)) {
+        // It occasionally happens that a save succeeds, but with no visible confirmation indicator.  If we just save
+        // again, it will almost always work.
+        await page.click('#save-changes-button');
+        await page.waitForXPath(savedConfirmationXpath, {timeout: 15100});
+      } else {
+        throw err;
+      }
+    }
     log("Saved.");
   } finally {
     await browser.close();
