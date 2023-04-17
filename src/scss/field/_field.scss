@@ -147,6 +147,12 @@ input.sheet-field.sheet-field-freeform-text-line {
       left: 0;
       width: 100%;
       height: 100%;
+
+      align-items: center;
+      justify-content: center;
+      background-color: rgba($light-background-color, 75%);
+      box-sizing: border-box;
+      text-transform: none;
     }
 
     .sheet-skill-roll-menu-header {

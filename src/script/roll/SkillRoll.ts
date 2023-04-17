@@ -45,6 +45,8 @@ export class SkillRoll {
     const skillId = (eventInfo as any).htmlAttributes?.['data-skill'] as SkillId;
     const statId = (eventInfo as any).htmlAttributes?.['data-stat'] as StatId;
     if (skillId && statId) {
+      $20(`.sheet-skill-roll-menu[data-skill="${skillId}"]`).addClass('sheet-loading');
+
       const statLabel = getLabelForStatId(statId);
       const skillLabel = getLabelForSkillId(skillId);
       const {statModifier, skillModifier} = await this.getStatAndSkillModifier(statId, skillId);
