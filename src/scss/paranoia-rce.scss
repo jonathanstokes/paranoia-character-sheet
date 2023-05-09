@@ -10,6 +10,7 @@
 @import "./header/header";
 @import "./roll-template/skill-roll-template";
 
+$picture-size: 26.5rem;
 
 .sheet-main {
     text-transform: uppercase;
@@ -82,8 +83,10 @@
 
 .sheet-picture {
     margin: 0.75rem 0 0 1rem;
-    min-width: 26.5rem;
-    border: 0.1875rem solid rgb(131, 174, 207);;
+    min-width: $picture-size;
+    max-width: $picture-size;
+    max-height: $picture-size;
+    border: 0.1875rem solid rgb(131, 174, 207);
 }
 
 .sheet-part {
