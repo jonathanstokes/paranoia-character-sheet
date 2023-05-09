@@ -65,3 +65,15 @@ export const getDefaultStatIdForSkillId = (skillId: SkillId): StatId => {
   }
   throw new Error(`No default stat ID found for Skill ID '${skillId}'.`);
 }
+
+export enum Clearance {
+  INFRARED = 'Infrared',
+  RED = 'Red',
+  ORANGE = 'Orange',
+  YELLOW = 'Yellow',
+  GREEN = 'Green',
+  BLUE = 'Blue',
+  INDIGO = 'Indigo',
+  VIOLET = 'Violet',
+  ULTRAVIOLET = 'Ultraviolet'
+}
