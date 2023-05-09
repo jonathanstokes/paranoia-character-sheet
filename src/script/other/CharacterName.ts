@@ -7,7 +7,9 @@ export class CharacterName {
     on('change:name change:clearance change:sector change:clone_count', async () => {
       const { name, clearance, sector, clone_count } = await getAttrsAsync(['name', 'clearance', 'sector', 'clone_count']);
       const clearanceSuffix = clearance === 'infrared' ? '' : `-${clearance.substring(0, 1).toUpperCase()}`;
-      await setAttrsAsync({character_name: `${name}${clearanceSuffix}-${sector.toUpperCase()}-${clone_count}`});
+      const characterName = `${name}${clearanceSuffix}-${sector.toUpperCase()}-${clone_count}`;
+      console.log(`TODO: change character_name to: ${characterName}`);
+      // await setAttrsAsync({character_name: `${name}${clearanceSuffix}-${sector.toUpperCase()}-${clone_count}`});
     });
   }
 }
