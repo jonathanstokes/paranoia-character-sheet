@@ -2,7 +2,7 @@ import {stripAttr} from "../util/util.js";
 
 export class ClearanceField {
 
-  static init() {
+  static init(firstOpen: boolean) {
     // When 'clearance' changes, also change 'clearance_letter' to match
     on(`change:clearance`, () => {
       getAttrs(['clearance'], (values) => {

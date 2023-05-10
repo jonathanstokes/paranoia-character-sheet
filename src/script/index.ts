@@ -10,20 +10,17 @@ import {SkillRoll} from "./roll/SkillRoll.js";
 let characterSheetsInitialized = false;
 
 on('sheet:opened', (eventInfo) => {
-  if (!characterSheetsInitialized) {
-    console.log("Paranoia character sheet initializing.");
-    ClearanceField.init();
-    TreasonStarsField.init();
-    ModifierNumberField.init();
-    MoxieField.init();
-    WoundsField.init();
-    CharacterName.init();
-    SkillRoll.init();
-    characterSheetsInitialized = true;
-    console.log("Paranoia character sheet initialized.");
-  } else {
-    console.log("Paranoia character sheet already initialized.");
-  }
+  const firstOpened = !characterSheetsInitialized;
+  console.log("Paranoia character sheet initializing.", {firstOpened});
+  ClearanceField.init(firstOpened);
+  TreasonStarsField.init(firstOpened);
+  ModifierNumberField.init(firstOpened);
+  MoxieField.init(firstOpened);
+  WoundsField.init(firstOpened);
+  CharacterName.init(firstOpened);
+  SkillRoll.init(firstOpened);
+  characterSheetsInitialized = true;
+  console.log("Paranoia character sheet initialized.");
 });
 
 console.log("Paranoia character sheet installed.", workerScope);

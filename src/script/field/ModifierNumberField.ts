@@ -2,7 +2,7 @@ import {getSingleAttrAsync, setAttrsAsync} from "../util/Roll20Async.js";
 
 export class ModifierNumberField {
 
-  static init() {
+  static init(firstOpen: boolean) {
     new ModifierNumberField('athletics_skill');
     new ModifierNumberField('guns_skill');
     new ModifierNumberField('melee_skill');

@@ -42,6 +42,10 @@ $slash-hovered-color: $alternative-dark-primary-text-color;
         color: $slash-hovered-color;
       }
     }
+
+    &.hidden {
+      display: none;
+    }
   }
 
 }

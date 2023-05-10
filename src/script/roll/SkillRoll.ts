@@ -6,21 +6,24 @@ import {
   STAT_IDS,
   StatId
 } from "../constant/paranoia-constants.js";
+import {first} from "lodash";
 
 
 export class SkillRoll {
 
-  static init() {
+  static init(firstOpen: boolean) {
     const instance = new SkillRoll();
-    on('clicked:roll_skill', async eventInfo => instance.handleRollSkillAction(eventInfo));
-    on('clicked:roll_stat_and_skill', async eventInfo =>
-      instance
-        .handleRollStatAndSkillAction(eventInfo)
-        .catch(err => {
-          console.error(`Error handling roll skill action for ${(eventInfo as any).htmlAttributes?.['data-skill']}:`, err);
-        })
-    );
-    on('clicked:close_roll_skill', eventInfo => instance.handleCloseRollSkillMenu(eventInfo))
+    if (firstOpen) {
+      on('clicked:roll_skill', async eventInfo => instance.handleRollSkillAction(eventInfo));
+      on('clicked:roll_stat_and_skill', async eventInfo =>
+        instance
+          .handleRollStatAndSkillAction(eventInfo)
+          .catch(err => {
+            console.error(`Error handling roll skill action for ${(eventInfo as any).htmlAttributes?.['data-skill']}:`, err);
+          })
+      );
+      on('clicked:close_roll_skill', eventInfo => instance.handleCloseRollSkillMenu(eventInfo))
+    }
     instance.setDefaultSkillClasses();
   }
 

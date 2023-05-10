@@ -2,8 +2,8 @@ import {CheckboxSeriesField} from "./CheckboxSeriesField.js";
 
 export class TreasonStarsField extends CheckboxSeriesField<number> {
 
-  static init() {
-    CheckboxSeriesField.init(new TreasonStarsField());
+  static init(firstOpen: boolean) {
+    CheckboxSeriesField.init(firstOpen, new TreasonStarsField());
   }
 
   protected constructor() {

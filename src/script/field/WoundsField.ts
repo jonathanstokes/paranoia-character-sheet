@@ -2,8 +2,8 @@ import {CheckboxSeriesField} from "./CheckboxSeriesField.js";
 
 export class WoundsField extends CheckboxSeriesField<string> {
 
-  static init() {
-    CheckboxSeriesField.init(new WoundsField());
+  static init(firstOpen: boolean) {
+    CheckboxSeriesField.init(firstOpen, new WoundsField());
   }
 
   protected constructor() {

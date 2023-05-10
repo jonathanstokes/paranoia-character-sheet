@@ -2,8 +2,8 @@ import {CheckboxSeriesField} from "./CheckboxSeriesField.js";
 
 export class MoxieField extends CheckboxSeriesField<number> {
 
-  static init() {
-    CheckboxSeriesField.init(new MoxieField());
+  static init(firstOpen: boolean) {
+    CheckboxSeriesField.init(firstOpen, new MoxieField());
   }
 
   protected constructor() {
@@ -25,11 +25,12 @@ export class MoxieField extends CheckboxSeriesField<number> {
   }
 
   protected getValueForControl(controlName: string): number {
-    return controlName ? +controlName.substring(controlName.lastIndexOf('_') + 1) : 0;
+    return controlName ? +controlName.substring(controlName.lastIndexOf('_') + 1) - 1 : 8;
   }
 
   protected getControlNameForValue(value: number | string): string | null {
-    return +value > 0 ? `moxie_circle_${value}` : null;
+    const numericValue = +value;
+    return numericValue >= 0 && numericValue < 8 ? `moxie_circle_${numericValue + 1}` : null;
   }
 
 

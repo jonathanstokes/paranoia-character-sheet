@@ -1,4 +1,4 @@
-import {getAttrsAsync, getSingleAttrAsync, setAttrsAsync} from "../util/Roll20Async.js";
+import {getSingleAttrAsync, setAttrsAsync} from "../util/Roll20Async.js";
 
 export interface CheckboxSeriesControlMetadata {
   name: string;
@@ -13,7 +13,7 @@ export type SeriesDirection = 'left-to-right' | 'right-to-left';
  */
 export abstract class CheckboxSeriesField<V extends string | number> {
 
-  protected static init(instance: CheckboxSeriesField<string | number>) {
+  protected static init(firstOpen: boolean, instance: CheckboxSeriesField<string | number>) {
     $20(instance.allControlsSelector).on('click', (e) =>
       instance
         .handleClick(e)
@@ -21,11 +21,17 @@ export abstract class CheckboxSeriesField<V extends string | number> {
     );
     $20(instance.allControlsSelector).on('mouseenter', (e) => instance.handleMouseEnter(e));
     $20(instance.allControlsSelector).on('mouseleave', (e) => instance.handleMouseLeave(e));
-    on(`change:${instance.attributeName}`, (e) =>
-      instance.handleAttributeChange(e)
-        .catch(err => console.error(`${instance.constructor.name} error handling change for attribute ${instance.attributeName}:`, err))
-    );
-    console.log(`${instance.constructor?.name}.init()`);
+    if (firstOpen) {
+      on(`change:${instance.attributeName}`, (e) =>
+        instance.handleAttributeChange(e)
+          .catch(err => console.error(`${instance.constructor.name} error handling change for attribute ${instance.attributeName}:`, err))
+      );
+      on(`change:${instance.attributeName}_max`, (e) =>
+        instance.handleAttributeMaxChange()
+          .catch(err => console.error(`${instance.constructor.name} error handling change for attribute max ${instance.attributeName}_max:`, err))
+      );
+    }
+    console.log(`${instance.constructor?.name}.init()`, {firstOpen});
   }
 
   protected readonly allControlsSelector: string;
@@ -54,6 +60,10 @@ export abstract class CheckboxSeriesField<V extends string | number> {
     this.controlProfiles = controlProfiles;
     this.direction = direction;
     this.initializeValue().catch(err => console.error(`Error initializing value for ${this.constructor.name} ${this.attributeName}:`, err));
+  }
+
+  async getAttributeMaxValue(): Promise<string> {
+    return getSingleAttrAsync(`${this.attributeName}_max`);
   }
 
   async getAttributeValue(): Promise<string> {
@@ -116,6 +126,12 @@ export abstract class CheckboxSeriesField<V extends string | number> {
     }
   }
 
+  protected async handleAttributeMaxChange() {
+    const updatedStringValue = await this.getAttributeMaxValue();
+    const maxControlName = this.getControlNameForValue(updatedStringValue);
+    this.setClassesForMaxValue(maxControlName);
+  }
+
   protected async handleClick(e: JQueryProxyEvent) {
     await this.handleControlClick(e.htmlAttributes.name);
   }
@@ -146,6 +162,7 @@ export abstract class CheckboxSeriesField<V extends string | number> {
     const stringValue = await getSingleAttrAsync(this.attributeName);
     console.log("initial value for " + this.attributeName + ": ", stringValue);
     await this.setControlSelection(this.getControlNameForValue(stringValue), true);
+    await this.handleAttributeMaxChange();
   }
 
   protected isMainSelection(controlName: string): boolean {
@@ -176,6 +193,15 @@ export abstract class CheckboxSeriesField<V extends string | number> {
       }
     } else {
       this.removeClassFromAll(className);
+    }
+  }
+
+  protected setClassesForMaxValue(maxControlName: string | null) {
+    let hiding = false;
+    for (const profile of this.controlProfiles) {
+      const el = $20(profile.selector);
+      if (profile.name === maxControlName) hiding = true;
+      hiding ? el.addClass('hidden') : el.removeClass('hidden');
     }
   }
 
