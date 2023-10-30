@@ -32,6 +32,11 @@ const deploy = async (campaignId: string, layoutHtml: string, styleCss: string) 
   try {
 
     const page = (await browser.pages())[0] || (await browser.newPage());
+    // await page.setJavaScriptEnabled(true);
+    // await page.setExtraHTTPHeaders({
+    //   'Accept-Language': 'en'
+    // });
+    // await page.setUserAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36');
 
     const retryWithReload = async <T>(task: () => Promise<T>, tryCount: number): Promise<T> => {
       let lastError: any = null;
@@ -50,23 +55,24 @@ const deploy = async (campaignId: string, layoutHtml: string, styleCss: string) 
       throw lastError;
     };
 
+    const siteUrl = `http://35.202.54.175`; // `https://app.roll20.net`
     if (useCreateAccountPageBypass) {
       // The /login page has Cloudflare bot detection, but the /create-account page doesn't. <shrug>.  If we go to the
       // /create-account first and click the login button from there, we don't get bot detection.
-      await page.goto(`https://app.roll20.net/create-account`, {waitUntil: 'domcontentloaded'});
+      await page.goto(`${siteUrl}/create-account`, {waitUntil: 'domcontentloaded'});
       await page.waitForSelector('button[id*="login"]')
       await page.click('button[id*="login"]');
       await page.waitForNavigation();
     } else {
       log("Opening login page.");
-      await page.goto(`https://app.roll20.net/`, {timeout: 45050, waitUntil: 'domcontentloaded'});
+      await page.goto(`${siteUrl}/`, {timeout: 45050, waitUntil: 'domcontentloaded'});
       try {
         await page.waitForSelector('form.login input[name="email"]', {timeout: 9500});
       } catch (timedout) {
         log("Re-routing to login page.");
         // start: retryWithReload()
         await retryWithReload(async () => {
-          await page.goto(`https://app.roll20.net/create-account`, {timeout: 10500, waitUntil: 'domcontentloaded'});
+          await page.goto(`${siteUrl}/create-account`, {timeout: 10500, waitUntil: 'domcontentloaded'});
           await page.waitForSelector('button[id*="login"]', {timeout: 200000}) // tmp timeout for debugging
         }, 3);
         // end
